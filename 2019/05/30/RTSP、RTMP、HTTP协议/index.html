@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="RTSP、RTMP、HTTP协议一、异同  RSTP、RTMP、HTTP协议共同点RTSP RTMP HTTP都是用在应用层。理论上这三种协议都可以做直播和点播，但直播一般用RTSP和RTMP点播用HTTP。 RSTP、RTMP、HTTP协议区别HTTP将数据作为文件处理，所以HTTP不是流媒体协议，RTMP和RTSP是流媒体协议。RTMP是Adobe的私有协议，未完全公开，RTSP和HTTP是共">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/RTSP、RTMP、HTTP协议/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="RTSP、RTMP、HTTP协议一、异同  RSTP、RTMP、HTTP协议共同点RTSP RTMP HTTP都是用在应用层。理论上这三种协议都可以做直播和点播，但直播一般用RTSP和RTMP点播用HTTP。 RSTP、RTMP、HTTP协议区别HTTP将数据作为文件处理，所以HTTP不是流媒体协议，RTMP和RTSP是流媒体协议。RTMP是Adobe的私有协议，未完全公开，RTSP和HTTP是共">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-29T16:16:17.180Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="RTSP、RTMP、HTTP协议一、异同  RSTP、RTMP、HTTP协议共同点RTSP RTMP HTTP都是用在应用层。理论上这三种协议都可以做直播和点播，但直播一般用RTSP和RTMP点播用HTTP。 RSTP、RTMP、HTTP协议区别HTTP将数据作为文件处理，所以HTTP不是流媒体协议，RTMP和RTSP是流媒体协议。RTMP是Adobe的私有协议，未完全公开，RTSP和HTTP是共">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-RTSP、RTMP、HTTP协议" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/RTSP、RTMP、HTTP协议/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.970Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="RTSP、RTMP、HTTP协议"><a href="#RTSP、RTMP、HTTP协议" class="headerlink" title="RTSP、RTMP、HTTP协议"></a><a href="https://www.cnblogs.com/ostin/p/9900918.html" target="_blank" rel="noopener">RTSP、RTMP、HTTP协议</a></h3><p>一、异同</p>
+<ol>
+<li>RSTP、RTMP、HTTP协议共同点<br>RTSP RTMP HTTP都是用在应用层。<br>理论上这三种协议都可以做直播和点播，但直播一般用RTSP和RTMP点播用HTTP。</li>
+<li>RSTP、RTMP、HTTP协议区别<br>HTTP将数据作为文件处理，所以HTTP不是流媒体协议，RTMP和RTSP是流媒体协议。<br>RTMP是Adobe的私有协议，未完全公开，RTSP和HTTP是共有协议。<br>RTMP一般传输flv,f4v格式流，RTSP传输ts，MP4格式流，HTTP没有特定的流。<br>RTSP一般需要2-3个通道，数据和命令通道分开，RTMP和HTTP在一个通道上传输命令和数据。</li>
+<li>RTSP操作流程<ol>
+<li>客户端连接到流服务器，查询服务器可用方法</li>
+<li>发送一个RTSP描述命令（DESCRIBE），流服务器通过一个SDP描述来进行反馈，反馈信息包括流数量、媒体类型等信息.</li>
+<li>客户端再分析该SDP描述，并为会话中的每一个流发送一个RTSP建立命令(SETUP)，RTSP建立命令告诉服务器客户端用于接收媒体数据的端口</li>
+<li>流媒体连接建立完成后，客户端发送一个播放命令(PLAY)，服务器就开始在传送媒体流（RTP包）到客户端。在播放过程中客户端还可以向服务器发送命令来控制快进、快退和暂停等</li>
+<li>最后，客户端可发送一个终止命令(TERADOWN)来结束流媒体会话。</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/RTSP、RTMP、HTTP协议/" data-id="cjwa2g0kk0008twvbxenoco3x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/30/yum源/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/30/oracle存在更新，不存在新增/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/30/获取资源路径方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/编程基础/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/线程数用完/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/百度配置管理/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/查询pid/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

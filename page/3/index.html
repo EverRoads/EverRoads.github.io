@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-centos图形桌面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/centos图形桌面/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.952Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前公司的服务器都是用的CentOS 的系统，需要安装图形界面的时候我会执行以下命令<br>yum -y groupinstall “X Window System” “Fonts” “Desktop”<br>这种安装的是应该kde桌面，桌面现在主要有两种，kde和gnome。kde适合客户端，装了很多应用，操作起来像Windows一样，gnome适合服务器端，更精简一些。<br>但是后来CentOS 7使用这个方法安装的时候不行，所以使用了下面的命令安装<br>yum groupinstall “GNOME Desktop” “Graphical Administration Tools” -y<br>ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target<br>startx</p>
+<p>yum-complete-transaction –cleanup-only” and “yum history redo last</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/centos图形桌面/" data-id="cjwa2g0kp000atwvbzxwazwt4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSDN-markdown编辑器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/CSDN-markdown编辑器/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.952Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>@<a href="这里写自定义目录标题">TOC</a></p>
+<h1 id="欢迎使用Markdown编辑器"><a href="#欢迎使用Markdown编辑器" class="headerlink" title="欢迎使用Markdown编辑器"></a>欢迎使用Markdown编辑器</h1><p>你好！ 这是你第一次使用 <strong>Markdown编辑器</strong> 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。</p>
+<h2 id="新的改变"><a href="#新的改变" class="headerlink" title="新的改变"></a>新的改变</h2><p>我们对Markdown编辑器进行了一些功能拓展与语法支持，除了标准的Markdown编辑器功能，我们增加了如下几点新功能，帮助你用它写博客：</p>
+<ol>
+<li><strong>全新的界面设计</strong> ，将会带来全新的写作体验；</li>
+<li>在创作中心设置你喜爱的代码高亮样式，Markdown <strong>将代码片显示选择的高亮样式</strong> 进行展示；</li>
+<li>增加了 <strong>图片拖拽</strong> 功能，你可以将本地的图片直接拖拽到编辑区域直接展示；</li>
+<li>全新的 <strong>KaTeX数学公式</strong> 语法；</li>
+<li>增加了支持<strong>甘特图的mermaid语法<a href="[mermaid语法说明](https://mermaidjs.github.io/)">^1</a></strong> 功能；</li>
+<li>增加了 <strong>多屏幕编辑</strong> Markdown文章功能；</li>
+<li>增加了 <strong>焦点写作模式、预览模式、简洁写作模式、左右区域同步滚轮设置</strong> 等功能，功能按钮位于编辑区域与预览区域中间；</li>
+<li>增加了 <strong>检查列表</strong> 功能。</li>
+</ol>
+<h2 id="功能快捷键"><a href="#功能快捷键" class="headerlink" title="功能快捷键"></a>功能快捷键</h2><p>撤销：<kbd>Ctrl/Command</kbd> + <kbd>Z</kbd><br>重做：<kbd>Ctrl/Command</kbd> + <kbd>Y</kbd><br>加粗：<kbd>Ctrl/Command</kbd> + <kbd>B</kbd><br>斜体：<kbd>Ctrl/Command</kbd> + <kbd>I</kbd><br>标题：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd><br>无序列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd><br>有序列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd><br>检查列表：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd><br>插入代码：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd><br>插入链接：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd><br>插入图片：<kbd>Ctrl/Command</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd></p>
+<h2 id="合理的创建标题，有助于目录的生成"><a href="#合理的创建标题，有助于目录的生成" class="headerlink" title="合理的创建标题，有助于目录的生成"></a>合理的创建标题，有助于目录的生成</h2><p>直接输入1次<kbd>#</kbd>，并按下<kbd>space</kbd>后，将生成1级标题。<br>输入2次<kbd>#</kbd>，并按下<kbd>space</kbd>后，将生成2级标题。<br>以此类推，我们支持6级标题。有助于使用<code>TOC</code>语法后生成一个完美的目录。</p>
+<h2 id="如何改变文本的样式"><a href="#如何改变文本的样式" class="headerlink" title="如何改变文本的样式"></a>如何改变文本的样式</h2><p><em>强调文本</em> <em>强调文本</em></p>
+<p><strong>加粗文本</strong> <strong>加粗文本</strong></p>
+<p>==标记文本==</p>
+<p><del>删除文本</del></p>
+<blockquote>
+<p>引用文本</p>
+</blockquote>
+<p>H<del>2</del>O is是液体。</p>
+<p>2^10^ 运算结果是 1024.</p>
+<h2 id="插入链接与图片"><a href="#插入链接与图片" class="headerlink" title="插入链接与图片"></a>插入链接与图片</h2><p>链接: <a href="https://mp.csdn.net" target="_blank" rel="noopener">link</a>.</p>
+<p>图片: <img src="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg" alt="Alt"></p>
+<p>带尺寸的图片: ![Alt](<a href="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg" target="_blank" rel="noopener">https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg</a> =30x30)</p>
+<p>居中的图片: <img src="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg#pic_center" alt="Alt"></p>
+<p>居中并且带尺寸的图片: ![Alt](<a href="https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg#pic_center" target="_blank" rel="noopener">https://avatar.csdn.net/7/7/B/1_ralf_hx163com.jpg#pic_center</a> =30x30)</p>
+<p>当然，我们为了让用户更加便捷，我们增加了图片拖拽功能。</p>
+<h2 id="如何插入一段漂亮的代码片"><a href="#如何插入一段漂亮的代码片" class="headerlink" title="如何插入一段漂亮的代码片"></a>如何插入一段漂亮的代码片</h2><p>去<a href="https://mp.csdn.net/configure" target="_blank" rel="noopener">博客设置</a>页面，选择一款你喜欢的代码片高亮样式，下面展示同样高亮的 <code>代码片</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// An highlighted block</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="string">'bar'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成一个适合你的列表"><a href="#生成一个适合你的列表" class="headerlink" title="生成一个适合你的列表"></a>生成一个适合你的列表</h2><ul>
+<li>项目<ul>
+<li>项目<ul>
+<li>项目</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ol>
+<ul>
+<li><input disabled type="checkbox"> 计划任务</li>
+<li><input checked disabled type="checkbox"> 完成任务</li>
+</ul>
+<h2 id="创建一个表格"><a href="#创建一个表格" class="headerlink" title="创建一个表格"></a>创建一个表格</h2><p>一个简单的表格是这么创建的：<br>项目     | Value<br>——– | —–<br>电脑  | $1600<br>手机  | $12<br>导管  | $1</p>
+<h3 id="设定内容居中、居左、居右"><a href="#设定内容居中、居左、居右" class="headerlink" title="设定内容居中、居左、居右"></a>设定内容居中、居左、居右</h3><p>使用<code>:---------:</code>居中<br>使用<code>:----------</code>居左<br>使用<code>----------:</code>居右<br>| 第一列       | 第二列         | 第三列        |<br>|:———–:| ————-:|:————-|<br>| 第一列文本居中 | 第二列文本居右  | 第三列文本居左 |</p>
+<h3 id="SmartyPants"><a href="#SmartyPants" class="headerlink" title="SmartyPants"></a>SmartyPants</h3><p>SmartyPants将ASCII标点字符转换为“智能”印刷标点HTML实体。例如：<br>|    TYPE   |ASCII                          |HTML<br>|—————-|——————————-|—————————–|<br>|Single backticks|<code>&#39;Isn&#39;t this fun?&#39;</code>            |’Isn’t this fun?’            |<br>|Quotes          |<code>&quot;Isn&#39;t this fun?&quot;</code>            |”Isn’t this fun?”            |<br>|Dashes          |<code>-- is en-dash, --- is em-dash</code>|– is en-dash, — is em-dash|</p>
+<h2 id="创建一个自定义列表"><a href="#创建一个自定义列表" class="headerlink" title="创建一个自定义列表"></a>创建一个自定义列表</h2><dl><dt>Markdown</dt><dd>Text-to-HTML conversion tool</dd></dl><dl><dt>Authors<br>:  John</dt><dd>Luke</dd></dl><h2 id="如何创建一个注脚"><a href="#如何创建一个注脚" class="headerlink" title="如何创建一个注脚"></a>如何创建一个注脚</h2><p>一个具有注脚的文本。<a href="注脚的解释">^2</a></p>
+<h2 id="注释也是必不可少的"><a href="#注释也是必不可少的" class="headerlink" title="注释也是必不可少的"></a>注释也是必不可少的</h2><p>Markdown将文本转换为 HTML。</p>
+<p>*[HTML]:   超文本标记语言</p>
+<h2 id="KaTeX数学公式"><a href="#KaTeX数学公式" class="headerlink" title="KaTeX数学公式"></a>KaTeX数学公式</h2><p>您可以使用渲染LaTeX数学表达式 <a href="https://khan.github.io/KaTeX/" target="_blank" rel="noopener">KaTeX</a>:</p>
+<p>Gamma公式展示 $\Gamma(n) = (n-1)!\quad\forall<br>n\in\mathbb N$ 是通过欧拉积分</p>
+<p>$$<br>\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt,.
+$$</p>
+<blockquote>
+<p>你可以找到更多关于的信息 <strong>LaTeX</strong> 数学表达式<a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">here</a>.</p>
+</blockquote>
+<h2 id="新的甘特图功能，丰富你的文章"><a href="#新的甘特图功能，丰富你的文章" class="headerlink" title="新的甘特图功能，丰富你的文章"></a>新的甘特图功能，丰富你的文章</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">        dateFormat  YYYY-MM-DD</span><br><span class="line">        title Adding GANTT diagram functionality to mermaid</span><br><span class="line">        section 现有任务</span><br><span class="line">        已完成               :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">        进行中               :active,  des2, 2014-01-09, 3d</span><br><span class="line">        计划一               :         des3, after des2, 5d</span><br><span class="line">        计划二               :         des4, after des3, 5d</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于 <strong>甘特图</strong> 语法，参考 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">这儿</a>,</li>
+</ul>
+<h2 id="UML-图表"><a href="#UML-图表" class="headerlink" title="UML 图表"></a>UML 图表</h2><p>可以使用UML图表进行渲染。 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">Mermaid</a>. 例如下面产生的一个序列图：:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">张三 -&gt;&gt; 李四: 你好！李四, 最近怎么样?</span><br><span class="line">李四--&gt;&gt;王五: 你最近怎么样，王五？</span><br><span class="line">李四--x 张三: 我很好，谢谢!</span><br><span class="line">李四-x 王五: 我很好，谢谢!</span><br><span class="line">Note right of 王五: 李四想了很长时间, 文字太长了&lt;br/&gt;不适合放在一行.</span><br><span class="line"></span><br><span class="line">李四--&gt;&gt;张三: 打量着王五...</span><br><span class="line">张三-&gt;&gt;王五: 很好... 王五, 你怎么样?</span><br></pre></td></tr></table></figure>
+
+<p>这将产生一个流程图。:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[长方形] -- 链接 --&gt; B((圆))</span><br><span class="line">A --&gt; C(圆角长方形)</span><br><span class="line">B --&gt; D&#123;菱形&#125;</span><br><span class="line">C --&gt; D</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于 <strong>Mermaid</strong> 语法，参考 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">这儿</a>,</li>
+</ul>
+<h2 id="FLowchart流程图"><a href="#FLowchart流程图" class="headerlink" title="FLowchart流程图"></a>FLowchart流程图</h2><p>我们依旧会支持flowchart的流程图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">flowchat</span><br><span class="line">st=&gt;start: Start</span><br><span class="line">e=&gt;end: End</span><br><span class="line">cond=&gt;condition: Option</span><br><span class="line">op1=&gt;operation: solution_1</span><br><span class="line">op2=&gt;operation: solution_2</span><br><span class="line"></span><br><span class="line">st-&gt;cond</span><br><span class="line">cond(yes)-&gt;op1-&gt;e</span><br><span class="line">cond(no)-&gt;op2-&gt;e</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">flowchat</span><br><span class="line">st=&gt;start: 开始</span><br><span class="line">e=&gt;end: 结束</span><br><span class="line">op=&gt;operation: 我的操作</span><br><span class="line">cond=&gt;condition: 确认？</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+
+<p>我们</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">flowchat</span><br><span class="line">st=&gt;start: 开始</span><br><span class="line">e=&gt;end: 结束</span><br><span class="line">op=&gt;operation: 我的操作</span><br><span class="line">cond=&gt;condition: 确认？</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关于 <strong>Flowchart流程图</strong> 语法，参考 <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">这儿</a>.</li>
+</ul>
+<h2 id="导出与导入"><a href="#导出与导入" class="headerlink" title="导出与导入"></a>导出与导入</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>如果你想尝试使用此编辑器, 你可以在此篇文章任意编辑。当你完成了一篇文章的写作, 在上方工具栏找到 <strong>文章导出</strong> ，生成一个.md文件或者.html文件进行本地保存。</p>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><p>如果你想加载一篇你写过的.md文件或者.html文件，在上方工具栏可以选择导入功能进行对应扩展名的文件导入，<br>继续你的创作。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/CSDN-markdown编辑器/" data-id="cjwa2g0ke0002twvbdtrylwjr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Buffer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/Buffer/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.950Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Buffer-缓冲区"><a href="#Buffer-缓冲区" class="headerlink" title="Buffer(缓冲区)"></a><strong>Buffer(缓冲区)</strong></h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>Bufer顾名思义，它是一个缓冲区，实际上是一个容器，一个连续数组。Channel提供从文件、网络读取数据的渠道，但是读写的数据都必须经过Buffer。</p>
+<p><img src="Buffer/Buffer%E5%AE%9A%E4%B9%89" alt="1559134857888"></p>
+<p>​          Buffer缓冲区本质上是一块可以写入数据，然后可以从中读取数据的内存。这块内存被包装成NIO Buffer对象，并提供了一组方法，用来方便的访问该模块内存。为了理解Buffer的工作原理，需要熟悉它的三个属性：capacity、position和limit。</p>
+<h5 id="capacity、position和limit"><a href="#capacity、position和limit" class="headerlink" title="capacity、position和limit"></a>capacity、position和limit</h5><p>position和limit的含义取决于Buffer处在读模式还是写模式。不管Buffer处在什么模式，capacity的含义总是一样的。见下图：</p>
+<p>​           <img src="Buffer/capacity%E5%AE%9A%E4%B9%89" alt="img"></p>
+<p>​    <strong>capacity：</strong>作为一个内存块，Buffer有固定的大小值，也叫作“capacity”，只能往其中写入capacity个byte、long、char等类型。一旦Buffer满了，需要将其清空（通过读数据或者清楚数据）才能继续写数据。</p>
+<p>​    <strong>position</strong>：当你写数据到Buffer中时，position表示当前的位置。出事的position值为0，当写入一个字节数据到Buffer中后，position会向前移动到下一个可插入数据的Buffer单元。position最大可为capacity-1。当读取数据时，也是从某个特定位置读，讲Buffer从写模式切换到读模式，position会被重置为0。当从Buffer的position处读取一个字节数据后，position向前移动到下一个可读的位置。</p>
+<p>​    <strong>limit</strong>：在写模式下，Buffer的limit表示你最多能往Buffer里写多少数据。 写模式下，limit等于Buffer的capacity。当切换Buffer到读模式时， limit表示你最多能读到多少数据。因此，当切换Buffer到读模式时，limit会被设置成写模式下的position值。换句话说，你能读到之前写入的所有数据（limit被设置成已写数据的数量，这个值在写模式下就是position）</p>
+<p>​     </p>
+<h5 id="Buffer的分配"><a href="#Buffer的分配" class="headerlink" title="Buffer的分配"></a><strong>Buffer的分配</strong></h5><p>对Buffer对象的操作必须首先进行分配，Buffer提供一个allocate(int capacity)方法分配一个指定字节大小的对象。</p>
+<h5 id="向Buffer中写数据"><a href="#向Buffer中写数据" class="headerlink" title="向Buffer中写数据"></a><strong>向Buffer中写数据</strong></h5><p>写数据到Buffer中有两种方式：</p>
+<ol>
+<li><p>从channel写到Buffer</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> bytes = channel.read(buf); <span class="comment">//将channel中的数据读取到buf中</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过Buffer的put()方法写到Buffer</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">buf.put(<span class="keyword">byte</span>); <span class="comment">//将数据通过put()方法写入到buf中</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="flip-方法"><a href="#flip-方法" class="headerlink" title="flip()方法"></a><strong>flip()方法</strong></h5><p>将Buffer从写模式切换到读模式，调用flip()方法会将position设置为0，并将limit设置为之前的position的值。</p>
+<h5 id="从Buffer中读数据"><a href="#从Buffer中读数据" class="headerlink" title="从Buffer中读数据"></a><strong>从Buffer中读数据</strong></h5><p>从Buffer中读数据有两种方式：</p>
+<ol>
+<li>从Buffer读取数据到Channel</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> bytes = channel.write(buf); <span class="comment">//将buf中的数据读取到channel中</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>通过Buffer的get()方法读取数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> bt = buf.get(); <span class="comment">//从buf中读取一个byte</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="rewind-方法"><a href="#rewind-方法" class="headerlink" title="rewind()方法"></a><strong>rewind()方法</strong></h5><p>Buffer.rewind()方法将position设置为0，使得可以重读Buffer中的所有数据，limit保持不变。</p>
+<p>Buffer中的数据，读取完成后，依然保存在Buffer中，可以重复读取。</p>
+<h5 id="clear-与compact-方法"><a href="#clear-与compact-方法" class="headerlink" title="clear()与compact()方法"></a><strong>clear()与compact()方法</strong></h5><p>一旦读完Buffer中的数据，需要让Buffer准备好再次被写入，可以通过clear()或compact()方法完成。如果调用的是clear()方法，position将被设置为0，limit设置为capacity的值。但是Buffer并未被清空，只是通过这些标记告诉我们可以从哪里开始往Buffer中写入多少数据。如果Buffer中还有一些未读的数据，调用clear()方法将被”遗忘 “。compact()方法将所有未读的数据拷贝到Buffer起始处，然后将position设置到最后一个未读元素的后面，limit属性依然设置为capacity。可以使得Buffer中的未读数据还可以在后续中被使用。 </p>
+<h5 id="mark-与reset-方法"><a href="#mark-与reset-方法" class="headerlink" title="mark()与reset()方法"></a><strong>mark()与reset()方法</strong></h5><p>通过调用Buffer.mark()方法可以标记一个特定的position，之后可以通过调用Buffer.reset()恢复到这个position上。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/Buffer/" data-id="cjwa2g0kg0004twvbe0lzj6z8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Bat查杀一个进程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/Bat查杀一个进程/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.948Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="windos下查杀脚本"><a href="#windos下查杀脚本" class="headerlink" title="windos下查杀脚本"></a>windos下查杀脚本</h3><p>由于需要看动脑学院的视频课程,他们的播放器不允许例如Teamview的软件存在,但是TeamView在后台又会偷偷的自启动,需要查杀例如进程的脚本,但是Shell和Bat差的太远了,找了两个,学习了一下写出来自己需要的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">:1</span><br><span class="line">for /f %%i in ('tasklist') do (if /i "%%i"=="TeamViewer_Service.exe" (echo 1&gt;nul) else (taskkill /f /im TeamViewer_Service.exe&gt;nul))</span><br><span class="line">ping -n 6 127.0.0.1&gt;nul</span><br><span class="line">goto 1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line">@echo off </span><br><span class="line">:menu </span><br><span class="line">color 4f </span><br><span class="line">cls </span><br><span class="line">echo "| | </span><br><span class="line">echo "| 进程判断 | </span><br><span class="line">echo "| 请选择(只要输入1,2,3,4)： | </span><br><span class="line">echo "| 1.根据程序名 例：taskmgr.exe | </span><br><span class="line">echo "| 2.根据窗口标题 例：Windows 任务管理器 | </span><br><span class="line">echo "| 3.根据PID值 例：3896 | </span><br><span class="line">echo "| 4.帮助文件 | </span><br><span class="line">echo "| 5.安全退出 | </span><br><span class="line">echo "| 6.Teamview |  </span><br><span class="line">echo "| 7.kill |  </span><br><span class="line">echo "| |</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">set /p Select=请选择(1,2,3,4然后回车): </span><br><span class="line">echo 您选择了第%Select%项 </span><br><span class="line">echo. </span><br><span class="line">echo.</span><br><span class="line"></span><br><span class="line">if &#123;%Select%&#125;==&#123;1&#125; goto ProgrammeName </span><br><span class="line">if &#123;%Select%&#125;==&#123;2&#125; goto WindowsTitle </span><br><span class="line">if &#123;%Select%&#125;==&#123;3&#125; goto PID </span><br><span class="line">if &#123;%Select%&#125;==&#123;4&#125; goto helptxt </span><br><span class="line">if &#123;%Select%&#125;==&#123;5&#125; goto exit</span><br><span class="line">if &#123;%Select%&#125;==&#123;6&#125; goto Teamviewer</span><br><span class="line">if &#123;%Select%&#125;==&#123;7&#125; goto Kill</span><br><span class="line"></span><br><span class="line">:Kill</span><br><span class="line"></span><br><span class="line">color a</span><br><span class="line"></span><br><span class="line">echo 请输入需要追踪的程序名(记得加.exe 例taskmgr.exe) </span><br><span class="line">for /f %%i in ('tasklist') do (if /i "%%i"=="TeamViewer.exe" (echo 1&gt;nul) else (taskkill /f /im TeamViewer.exe&gt;nul))</span><br><span class="line">ping -n 6 127.0.0.1&gt;nul</span><br><span class="line">for /f %%i in ('tasklist') do (if /i "%%i"=="TeamViewer_Service.exe" (echo 1&gt;nul) else (taskkill /f /im TeamViewer_Service.exe&gt;nul))</span><br><span class="line">ping -n 6 127.0.0.1&gt;nul</span><br><span class="line">pause </span><br><span class="line">goto menu </span><br><span class="line"></span><br><span class="line">:Teamviewer</span><br><span class="line"></span><br><span class="line">color a</span><br><span class="line"></span><br><span class="line">set  EXE=Teamviewer.exe </span><br><span class="line">echo. </span><br><span class="line">echo 您输入的程序名是:%EXE% </span><br><span class="line">echo. </span><br><span class="line">tasklist|find /i "%EXE%" &amp;&amp;  taskkill /f /im %EXE% || echo %EXE%未运行</span><br><span class="line"></span><br><span class="line">set  EXE=Teamviewer_Service.exe </span><br><span class="line">echo. </span><br><span class="line">echo 您输入的程序名是:%EXE% </span><br><span class="line">echo. </span><br><span class="line">tasklist|find /i "%EXE%" &amp;&amp;  taskkill /f /im %EXE% || echo %EXE%未运行 </span><br><span class="line">pause </span><br><span class="line">goto menu </span><br><span class="line"></span><br><span class="line">:ProgrammeName</span><br><span class="line"></span><br><span class="line">color a</span><br><span class="line"></span><br><span class="line">echo 请输入需要追踪的程序名(记得加.exe 例taskmgr.exe) </span><br><span class="line">set /p EXE=程序名: </span><br><span class="line">echo. </span><br><span class="line">echo 您输入的程序名是:%EXE% </span><br><span class="line">echo. </span><br><span class="line">tasklist|find /i "%EXE%" &amp;&amp; echo %EXE%运行中 || echo %EXE%未运行 </span><br><span class="line">pause </span><br><span class="line">goto menu</span><br><span class="line"></span><br><span class="line">:WindowsTitle</span><br><span class="line"></span><br><span class="line">color b</span><br><span class="line"></span><br><span class="line">echo 请输入需要追踪的窗口标题(例如：Windows 任务管理器) </span><br><span class="line">set /p Title=窗口标题: </span><br><span class="line">echo. </span><br><span class="line">echo 您输入的窗口标题是:%Title% </span><br><span class="line">echo. </span><br><span class="line">tasklist /FI "WINDOWTITLE eq %Title%"|find /i "PID" &amp;&amp; echo %Title%运行中 || echo %Title%未运行 </span><br><span class="line">pause </span><br><span class="line">goto menu</span><br><span class="line"></span><br><span class="line">:PID</span><br><span class="line"></span><br><span class="line">color c</span><br><span class="line"></span><br><span class="line">echo 请输入需要追踪的PID值(例如：3896) </span><br><span class="line">set /p pid=PID值: </span><br><span class="line">echo. </span><br><span class="line">echo 您输入的PID值是:%pid% </span><br><span class="line">echo. </span><br><span class="line">tasklist /FI "PID eq %pid%"|find /i "PID" &amp;&amp; echo PID:%pid%运行中 || echo PID:%pid%未运行 </span><br><span class="line">pause </span><br><span class="line">goto menu</span><br><span class="line"></span><br><span class="line">:helptxt </span><br><span class="line">color 03 </span><br><span class="line">more data/helptxt.inf </span><br><span class="line">goto menu</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">:exit </span><br><span class="line">cls </span><br><span class="line">echo. </span><br><span class="line">echo. </span><br><span class="line">echo. </span><br><span class="line">echo. </span><br><span class="line">echo. </span><br><span class="line">echo. </span><br><span class="line">echo. </span><br><span class="line">echo. </span><br><span class="line">echo. </span><br><span class="line">echo. </span><br><span class="line">echo. </span><br><span class="line">echo.</span><br><span class="line"></span><br><span class="line">echo 再见感谢你的使用 </span><br><span class="line">echo off </span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+<h3 id="底下的是自己需要的"><a href="#底下的是自己需要的" class="headerlink" title="底下的是自己需要的"></a>底下的是自己需要的</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@echo off </span><br><span class="line">:start</span><br><span class="line">echo 开始查杀</span><br><span class="line">pause</span><br><span class="line">echo. </span><br><span class="line">set  EXE=Teamviewer.exe </span><br><span class="line"></span><br><span class="line">tasklist|find /i <span class="string">"%EXE%"</span> &amp;&amp;  taskkill /f /im %EXE% || echo %EXE%未运行</span><br><span class="line"></span><br><span class="line">set  EXE=Teamviewer_Service.exe </span><br><span class="line"></span><br><span class="line">tasklist|find /i <span class="string">"%EXE%"</span> &amp;&amp;  taskkill /f /im %EXE% || echo %EXE%未运行 </span><br><span class="line">echo.</span><br><span class="line">pause </span><br><span class="line">goto start</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/Bat查杀一个进程/" data-id="cjwa2g0kc0001twvbe84udk63" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Base64显示" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/Base64显示/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.947Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://imgbase64.duoshitong.com/" target="_blank" rel="noopener">http://imgbase64.duoshitong.com/</a></p>
+<p>3.假定生成的代码为”data:image/jpeg;base64, …..”，那么你只需要全部复制，然后在插入图片的时候，地址填写这段代码即可。</p>
+<p>4.CSS中使用：background-image: url(“data:image/png;base64,iVBORw0KGgo=…”);</p>
+<p>5.HTML中使用：<img src="data:image/png;base64,iVBORw0KGgo=..."></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/Base64显示/" data-id="cjwa2g0k70000twvbtuc84yc7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-AVRO" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/AVRO/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.946Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>Avro RPC简介</li>
+<li><ol>
+<li>RPC<br>RPC逻辑上分为二层，一是传输层，负责网络通信；二是协议层，将数据按照一定协议格式打包和解包<br>从序列化方式来看，Apache Thrift 和Google的Protocol Buffers和Avro应该是属于同一个级别的框架，都能跨语言，性能优秀，数据精简，但是Avro的动态模式（不用生成代码，而且性能很好）这个特点让人非常喜欢，比较适合RPC的数据交换。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Avro RPC的主要特点<br>Avro RPC 是一个支持跨语言实现的RPC服务框架。非常轻量级，实现简洁，使用方便，同时支持使用者进行二次开发，逻辑上该框架分为两层：</li>
+</ol>
+</li>
+</ol>
+<p>网络传输层使用Netty的Nio实现。<br>协议层可扩展，目前支持的数据序列化方式有Avro，Protocol Buffers ，Json, Hessian,Java序列化。 使用者可以注册自己的协议格式及序列化方式。<br>Avro RPC主要特点：</p>
+<p>客户端传输层与应用层逻辑分离，传输层主要职责包括创建连接，连接查找与复用，传输数据，接收服务端回复后回调应用层；<br>客户端支持同步调用和异步调用。服务异步化能很好的提高系统吞吐量，建议使用异步调用。为防止异步发送请求过快，客户端增加了“请求流量限制”功能；<br>服务端有一个协议注册工厂和序列化注册工厂。这样方便针对不同的应用场景来定制服务方式。RPC应该只是服务方式的一种。在分布式的系统架构中，分布式节点之间的通信会存在多种方式，比如MQ的TOP消息，一个消息可以有多个订阅者。因此avro-rpc不仅仅是一个RPC服务框架，还是一个分布式通信的一个基础骨架，提供了很好的扩展性；<br>Avro序列化框架是Hadoop下的一个子项目，其特点是数据序列化不带标签，因此序列化后的数据非常小。支持动态解析, 不像Thrift 与 Protocol Buffers必须根据IDL来生成代码，这样侵入性有点强。性能很好，基本上和 Protocol Buffers差不多；</p>
+<ol start="2">
+<li><p>Avro RPC开发</p>
+</li>
+<li><p>1 Maven依赖<br>Java代码  收藏代码</p>
+<?xml version="1.0" encoding="UTF-8"?><p><br>&lt;project xmlns=”<a href="http://maven.apache.org/POM/4.0.0&quot;" target="_blank" rel="noopener">http://maven.apache.org/POM/4.0.0&quot;</a>  </p>
+<pre><code>xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;  
+xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;  </code></pre><p>  <modelversion>4.0.0</modelversion>  </p>
+<p>  <groupid>learn</groupid><br>  <artifactid>learn.avro</artifactid><br>  <version>1.0-SNAPSHOT</version>  </p>
+  <dependencies>  
+      <!--avro core-->  
+      <dependency>  
+          <groupid>org.apache.avro</groupid>  
+          <artifactid>avro</artifactid>  
+          <version>1.7.7</version>  
+      </dependency>  
+      <!--avro rpc support-->  
+      <dependency>  
+          <groupid>org.apache.avro</groupid>  
+          <artifactid>avro-ipc</artifactid>  
+          <version>1.7.7</version>  
+      </dependency>  
+  </dependencies>  
+  <build>  
+      <plugins>  
+          <plugin>  
+              <groupid>org.apache.avro</groupid>  
+              <artifactid>avro-maven-plugin</artifactid>  
+              <version>1.7.7</version>  
+              <executions>  
+                  <execution>  
+                      <phase>generate-sources</phase>  
+                      <goals>  
+                          <!--Maven goal that helps for code generation-->  
+                          <goal>schema</goal>  
+                          <!--For RPC used-->  
+                          <goal>protocol</goal>  
+                          <goal>idl-protocol</goal>  
+                      </goals>  
+                      <configuration>  
+                          <sourcedirectory>${project.basedir}/src/main/avro/</sourcedirectory>  
+                          <outputdirectory>${project.basedir}/src/main/java/</outputdirectory>  
+                      </configuration>  
+                  </execution>  
+              </executions>  
+          </plugin>  
+          <plugin>  
+              <groupid>org.apache.maven.plugins</groupid>  
+              <artifactid>maven-compiler-plugin</artifactid>  
+              <configuration>  
+                  <source>1.7  
+                  <target>1.7</target>  
+              </configuration>  
+          </plugin>  
+      </plugins>  
+  </build>  
+  
+
+
+</li>
+</ol>
+<p>2.2 定义协议schema文件(在src/main/avro/mail.avpr)<br>Js代码  收藏代码<br>{“namespace”: “examples.avro.rpc”,<br> “protocol”: “Mail”,  </p>
+<p> “types”: [<br>     {“name”: “Message”, “type”: “record”,<br>      “fields”: [<br>          {“name”: “to”,   “type”: “string”},<br>          {“name”: “from”, “type”: “string”},<br>          {“name”: “body”, “type”: “string”}<br>      ]<br>     }<br> ],  </p>
+<p> “messages”: {<br>     “send”: {<br>         “request”: [{“name”: “message”, “type”: “Message”}],<br>         “response”: “string”<br>     }<br> }<br>}  </p>
+<p>2.3 生成代码：<br>在Intellij Idea的Maven视图中,learn avro-&gt;Plugins-&gt;avro-&gt;avro:protocol,右击avro:protocol，执行Run Maven Build，生成protocol schema对应的Java实体类</p>
+<p>2.3.1 Mail接口<br>Java代码  收藏代码<br>/** </p>
+<ul>
+<li>Autogenerated by Avro </li>
+<li></li>
+<li>DO NOT EDIT DIRECTLY </li>
+<li>/  
+package examples.avro.rpc;  </li>
+</ul>
+<p>@SuppressWarnings(“all”)<br>@org.apache.avro.specific.AvroGenerated<br>public interface Mail {<br>    public static final org.apache.avro.Protocol PROTOCOL = org.apache.avro.Protocol.parse(“{&quot;protocol&quot;:&quot;Mail&quot;,&quot;namespace&quot;:&quot;example.proto&quot;,&quot;types&quot;:[{&quot;type&quot;:&quot;record&quot;,&quot;name&quot;:&quot;Message&quot;,&quot;fields&quot;:[{&quot;name&quot;:&quot;to&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;from&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;body&quot;,&quot;type&quot;:&quot;string&quot;}]}],&quot;messages&quot;:{&quot;send&quot;:{&quot;request&quot;:[{&quot;name&quot;:&quot;message&quot;,&quot;type&quot;:&quot;Message&quot;}],&quot;response&quot;:&quot;string&quot;}}}”);  </p>
+<pre><code>///Mail接口有1个方法send，参数是Message，Message是一个Avro类，可以序列化和反序列化  
+java.lang.CharSequence send(Message message) throws org.apache.avro.AvroRemoteException;  
+
+@SuppressWarnings(&quot;all&quot;)  
+public interface Callback extends Mail {  
+    public static final org.apache.avro.Protocol PROTOCOL = Mail.PROTOCOL;  
+
+    void send(Message message, org.apache.avro.ipc.Callback&lt;CharSequence&gt; callback) throws java.io.IOException;  
+}  </code></pre><p>}  </p>
+<p>2.3.2 Message类(根据schema文件生成)<br>Java代码  收藏代码<br>/** </p>
+<ul>
+<li><p>Autogenerated by Avro </p>
+</li>
+<li></li>
+<li><p>DO NOT EDIT DIRECTLY </p>
+</li>
+<li><p>/  
+package examples.avro.rpc;<br>@SuppressWarnings(“all”)<br>@org.apache.avro.specific.AvroGenerated<br>public class Message extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {<br>public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse(“{&quot;type&quot;:&quot;record&quot;,&quot;name&quot;:&quot;Message&quot;,&quot;namespace&quot;:&quot;example.proto&quot;,&quot;fields&quot;:[{&quot;name&quot;:&quot;to&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;from&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;body&quot;,&quot;type&quot;:&quot;string&quot;}]}”);<br>public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }<br>@Deprecated public java.lang.CharSequence to;<br>@Deprecated public java.lang.CharSequence from;<br>@Deprecated public java.lang.CharSequence body;  </p>
+<p>/** </p>
+<ul>
+<li>Default constructor.  Note that this does not initialize fields </li>
+<li>to their default values from the schema.  If that is desired then </li>
+<li>one should use <code>newBuilder()</code>.  </li>
+<li>/  
+public Message() {}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>All-args constructor. </li>
+<li>/  
+public Message(java.lang.CharSequence to, java.lang.CharSequence from, java.lang.CharSequence body) {<br>this.to = to;<br>this.from = from;<br>this.body = body;<br>}  </li>
+</ul>
+<p>public org.apache.avro.Schema getSchema() { return SCHEMA$; }<br>// Used by DatumWriter.  Applications should not call.<br>public java.lang.Object get(int field$) {<br>  switch (field$) {<br>  case 0: return to;<br>  case 1: return from;<br>  case 2: return body;<br>  default: throw new org.apache.avro.AvroRuntimeException(“Bad index”);<br>  }<br>}  
+// Used by DatumReader.  Applications should not call.<br>@SuppressWarnings(value=”unchecked”)<br>public void put(int field$, java.lang.Object value$) {<br>  switch (field$) {<br>  case 0: to = (java.lang.CharSequence)value$; break;<br>  case 1: from = (java.lang.CharSequence)value$; break;<br>  case 2: body = (java.lang.CharSequence)value$; break;<br>  default: throw new org.apache.avro.AvroRuntimeException(“Bad index”);<br>  }<br>}  </p>
+<p>/** </p>
+<ul>
+<li>Gets the value of the ‘to’ field. </li>
+<li>/  
+public java.lang.CharSequence getTo() {<br>return to;<br>}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>Sets the value of the ‘to’ field. </li>
+<li>@param value the value to set. </li>
+<li>/  
+public void setTo(java.lang.CharSequence value) {<br>this.to = value;<br>}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>Gets the value of the ‘from’ field. </li>
+<li>/  
+public java.lang.CharSequence getFrom() {<br>return from;<br>}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>Sets the value of the ‘from’ field. </li>
+<li>@param value the value to set. </li>
+<li>/  
+public void setFrom(java.lang.CharSequence value) {<br>this.from = value;<br>}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>Gets the value of the ‘body’ field. </li>
+<li>/  
+public java.lang.CharSequence getBody() {<br>return body;<br>}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>Sets the value of the ‘body’ field. </li>
+<li>@param value the value to set. </li>
+<li>/  
+public void setBody(java.lang.CharSequence value) {<br>this.body = value;<br>}  </li>
+</ul>
+<p>/** Creates a new Message RecordBuilder */<br>public static Message.Builder newBuilder() {<br>  return new Message.Builder();<br>}  </p>
+<p>/** Creates a new Message RecordBuilder by copying an existing Builder */<br>public static Message.Builder newBuilder(Message.Builder other) {<br>  return new Message.Builder(other);<br>}  </p>
+<p>/** Creates a new Message RecordBuilder by copying an existing Message instance */<br>public static Message.Builder newBuilder(Message other) {<br>  return new Message.Builder(other);<br>}  </p>
+<p>/** </p>
+<ul>
+<li><p>RecordBuilder for Message instances. </p>
+</li>
+<li><p>/  
+public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<message><br>implements org.apache.avro.data.RecordBuilder<message> {  </message></message></p>
+<p>private java.lang.CharSequence to;<br>private java.lang.CharSequence from;<br>private java.lang.CharSequence body;  </p>
+<p>/** Creates a new Builder */<br>private Builder() {<br>  super(Message.SCHEMA$);<br>}  </p>
+<p>/** Creates a Builder by copying an existing Builder */<br>private Builder(Message.Builder other) {<br>  super(other);<br>  if (isValidValue(fields()[0], other.to)) {  </p>
+<pre><code>this.to = data().deepCopy(fields()[0].schema(), other.to);  
+fieldSetFlags()[0] = true;  </code></pre><p>  }<br>  if (isValidValue(fields()[1], other.from)) {  </p>
+<pre><code>this.from = data().deepCopy(fields()[1].schema(), other.from);  
+fieldSetFlags()[1] = true;  </code></pre><p>  }<br>  if (isValidValue(fields()[2], other.body)) {  </p>
+<pre><code>this.body = data().deepCopy(fields()[2].schema(), other.body);  
+fieldSetFlags()[2] = true;  </code></pre><p>  }<br>}  </p>
+<p>/** Creates a Builder by copying an existing Message instance */<br>private Builder(Message other) {  </p>
+<pre><code>super(Message.SCHEMA$);  </code></pre><p>  if (isValidValue(fields()[0], other.to)) {  </p>
+<pre><code>this.to = data().deepCopy(fields()[0].schema(), other.to);  
+fieldSetFlags()[0] = true;  </code></pre><p>  }<br>  if (isValidValue(fields()[1], other.from)) {  </p>
+<pre><code>this.from = data().deepCopy(fields()[1].schema(), other.from);  
+fieldSetFlags()[1] = true;  </code></pre><p>  }<br>  if (isValidValue(fields()[2], other.body)) {  </p>
+<pre><code>this.body = data().deepCopy(fields()[2].schema(), other.body);  
+fieldSetFlags()[2] = true;  </code></pre><p>  }<br>}  </p>
+<p>/** Gets the value of the ‘to’ field */<br>public java.lang.CharSequence getTo() {<br>  return to;<br>}  </p>
+<p>/** Sets the value of the ‘to’ field */<br>public Message.Builder setTo(java.lang.CharSequence value) {<br>  validate(fields()[0], value);<br>  this.to = value;<br>  fieldSetFlags()[0] = true;<br>  return this;<br>}  </p>
+<p>/** Checks whether the ‘to’ field has been set */<br>public boolean hasTo() {<br>  return fieldSetFlags()[0];<br>}  </p>
+<p>/** Clears the value of the ‘to’ field */<br>public Message.Builder clearTo() {<br>  to = null;<br>  fieldSetFlags()[0] = false;<br>  return this;<br>}  </p>
+<p>/** Gets the value of the ‘from’ field */<br>public java.lang.CharSequence getFrom() {<br>  return from;<br>}  </p>
+<p>/** Sets the value of the ‘from’ field */<br>public Message.Builder setFrom(java.lang.CharSequence value) {<br>  validate(fields()[1], value);<br>  this.from = value;<br>  fieldSetFlags()[1] = true;<br>  return this;<br>}  </p>
+<p>/** Checks whether the ‘from’ field has been set */<br>public boolean hasFrom() {<br>  return fieldSetFlags()[1];<br>}  </p>
+<p>/** Clears the value of the ‘from’ field */<br>public Message.Builder clearFrom() {<br>  from = null;<br>  fieldSetFlags()[1] = false;<br>  return this;<br>}  </p>
+<p>/** Gets the value of the ‘body’ field */<br>public java.lang.CharSequence getBody() {<br>  return body;<br>}  </p>
+<p>/** Sets the value of the ‘body’ field */<br>public Message.Builder setBody(java.lang.CharSequence value) {<br>  validate(fields()[2], value);<br>  this.body = value;<br>  fieldSetFlags()[2] = true;<br>  return this;<br>}  </p>
+<p>/** Checks whether the ‘body’ field has been set */<br>public boolean hasBody() {<br>  return fieldSetFlags()[2];<br>}  </p>
+<p>/** Clears the value of the ‘body’ field */<br>public Message.Builder clearBody() {<br>  body = null;<br>  fieldSetFlags()[2] = false;<br>  return this;<br>}  </p>
+<p>@Override<br>public Message build() {<br>  try {  </p>
+<pre><code>Message record = new Message();  
+record.to = fieldSetFlags()[0] ? this.to : (java.lang.CharSequence) defaultValue(fields()[0]);  
+record.from = fieldSetFlags()[1] ? this.from : (java.lang.CharSequence) defaultValue(fields()[1]);  
+record.body = fieldSetFlags()[2] ? this.body : (java.lang.CharSequence) defaultValue(fields()[2]);  
+return record;  </code></pre><p>  } catch (Exception e) {  </p>
+<pre><code>throw new org.apache.avro.AvroRuntimeException(e);  </code></pre><p>  }<br>}  
+}<br>}  </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>2.3.3 AvroServer类</p>
+<p>Java代码  收藏代码<br>package examples.avro.rpc;  </p>
+<p>import org.apache.avro.ipc.NettyServer;<br>import org.apache.avro.ipc.Server;<br>import org.apache.avro.ipc.specific.SpecificResponder;<br>import org.apache.avro.util.Utf8;  </p>
+<p>import java.io.IOException;<br>import java.net.InetSocketAddress;  </p>
+<p>//Server端的实现Mai服务<br>class MailImpl implements Mail {<br>    public Utf8 send(Message message) {<br>        System.out.println(“Message Received：” + message);<br>        return new Utf8(“Received your message： “ + message.getFrom().toString()<br>                + “ with body “ + message.getBody().toString());<br>    }<br>}  </p>
+<p>public class AvroServer {  </p>
+<pre><code>private static Server server;  
+
+public static void main(String[] args) throws Exception {  
+
+    System.out.println(&quot;Starting server&quot;);  
+    startServer();  
+    Thread.sleep(1000);  
+    System.out.println(&quot;Server started&quot;);  
+    Thread.sleep(60 * 1000);  
+    server.close();  
+}  
+
+private static void startServer() throws IOException {  
+    server = new NettyServer(new SpecificResponder(Mail.class, new MailImpl()), new InetSocketAddress(65111));  
+}  </code></pre><p>}  </p>
+<p>2.3.3 AvroClient类<br>Java代码  收藏代码<br>package examples.avro.rpc;  </p>
+<p>import org.apache.avro.ipc.NettyTransceiver;<br>import org.apache.avro.ipc.specific.SpecificRequestor;<br>import org.apache.avro.util.Utf8;  </p>
+<p>import java.net.InetSocketAddress;  </p>
+<p>public class AvroClient {<br>    public static void main(String[] args) throws Exception {<br>        NettyTransceiver client = new NettyTransceiver(new InetSocketAddress(65111));<br>        ///获取Mail接口的proxy实现<br>        Mail proxy = SpecificRequestor.getClient(Mail.class, client);<br>        System.out.println(“Client of Mail Proxy is built”);  </p>
+<pre><code>    // fill in the Message record and send it  
+    args = new String[]{&quot;to:Tom&quot;, &quot;from:Jack&quot;, &quot;body:How are you&quot;};  
+    Message message = new Message();  
+    message.setTo(new Utf8(args[0]));  
+    message.setFrom(new Utf8(args[1]));  
+    message.setBody(new Utf8(args[2]));  
+    System.out.println(&quot;RPC call with message:  &quot; + message.toString());  
+
+    ///底层给服务器发送send方法调用  
+    System.out.println(&quot;Result: &quot; + proxy.send(message));  
+
+    // cleanup  
+    client.close();  
+}  </code></pre><p>}  </p>
+<p>本文支持对Avro RPC的粗浅尝试，Avro Client端用的同步通信方式</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/AVRO/" data-id="cjwa2g0lh000ttwvbr6m40myw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-allocate memory错误，线程数不够" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/allocate memory错误，线程数不够/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.944Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天遇到服务器无法SSH，VNC操作命令提示fork:cannot allocate memory</p>
+<p>free查看内存还有（注意，命令可能要多敲几次才会出来）<br>查看最大进程数 sysctl kernel.pid_max<br>ps -eLf | wc -l查看进程数<br>确认是进程数满了</p>
+<p>修改最大进程数后系统恢复<br>echo 1000000 &gt; /proc/sys/kernel/pid_max</p>
+<p>2 –22<br>永久生效<br>echo “kernel.pid_max=1000000 “ &gt;&gt; /etc/sysctl.conf<br>sysctl -p</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/allocate memory错误，线程数不够/" data-id="cjwa2g0ks000dtwvbo4ej5kyh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-记一次修改voovan框架BUG的经历" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/15/记一次修改voovan框架BUG的经历/" class="article-date">
+  <time datetime="2018-03-15T04:16:41.000Z" itemprop="datePublished">2018-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/15/记一次修改voovan框架BUG的经历/">记一次修改voovan框架BUG的经历</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1>记一次修改voovan框架BUG的经历</h1>
+<ol>
+    <li>首先需要在业务代码中查找到调用voovan框架有关的代码,如图所示在图中的this.getDockerHttpClient().run()</li>
+    <image src="https://raw.githubusercontent.com/WangSiwang/BolbResource/master/1调用业务代码的开始.png"></image>
+    <image src="https://raw.githubusercontent.com/WangSiwang/BolbResource/master/2调用接口代码.png"><image>
+    <li>开始根据contentType选择不同的execHttp的方法进行执行,并且拿到<b>resData</b>
+    我这里说的是能够拿到resData,后面返回却是返回为null</li>
+    <image src="https://raw.githubusercontent.com/WangSiwang/BolbResource/master/3组建和调用.png"><image>
+    <li>在这个封装和返回的阶段,有一步<b>response.body().write(resData)<b>,根据后面的代码查看并不能理解这一块写的是什么东西</b></b></li>
+    <image src="https://raw.githubusercontent.com/WangSiwang/BolbResource/master/4封装和返回.png"><image>
+    <image src="https://raw.githubusercontent.com/WangSiwang/BolbResource/master/5后面的write写内容.png"><image>
+    <li>紧接着上一步骤在这一步骤的时候还是可以拿到<b>log.info("docker shuchu {}", resData)</b>返回过来的数据的</li>
+    <li>但是在最后这一句<b>Result.newInstance(response)</b>返回过去的数据为null,仔细的查看这新创建的实例</li>
+    <image src="https://raw.githubusercontent.com/WangSiwang/BolbResource/master/6新创建的实例1.png"><image>
+    <image src="https://raw.githubusercontent.com/WangSiwang/BolbResource/master/7创建新实例过程2.png"><image>
+    <li>对先看这一张图这个构造方法中,经过百次的测试,只要在这里加上断点<b>this.response = response;</b>,数据是可以正常包装和返回的,但是如果这里没有断点,就返回为null?最后重写的Result方法,在上面地方加了一个log日志输出,结果日志可以正常打印</li>
+
+</image></image></image></image></image></image></image></image></image></image></image></image></ol>
+<h1>破坏voovan类的日志模块</h1>
+<h2>voovan作者自己写了一个日志的模块做轻量级使用,但是可能优先级比较高,阻断了业务日志的输出</h2>
+<h2>根据输出找到的StaticParam类,但命名来看是一个工具类,在log包下面找初始化log对象的类,找到Format类中newInstance方法,会读取到配置文件,将这一块置空,并将初始化new format内容制空,这时 log块会报未能有效初始化log对象,空指针错误.将引起空指针错误的应用到log对象的地方注释调即可</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/15/记一次修改voovan框架BUG的经历/" data-id="cjwa2g0l2000otwvbfjskkuw9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Jsch基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/05/Jsch基本使用/" class="article-date">
+  <time datetime="2018-03-05T05:45:59.000Z" itemprop="datePublished">2018-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/05/Jsch基本使用/">Jsch基本使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1>直接贴代码,不墨迹</h1>
+<h2>这个代码是指的是使用用户名密码,稍后会跟新使用ssh</h2>
+<pre>
+package com.sailing.docker.manager.install.util;
+
+<p>import com.jcraft.jsch.*;<br>import com.sailing.docker.manager.install.entity.SshInfo;<br>import lombok.extern.slf4j.Slf4j;<br>import org.junit.Test;</p>
+<p>import java.io.*;<br>import java.nio.charset.Charset;<br>import java.util.Properties;</p>
+<p>import static java.lang.String.format;</p>
+<p>/**</p>
+<ul>
+<li><p>create by wsw</p>
+</li>
+<li><p>ssh连接的工具类</p>
+</li>
+<li><p>/
+@Slf4j<br>public class SshExecuter implements Closeable{<br>  static long interval = 1000L;<br>  static int timeout = 3000;<br>  private SshInfo sshInfo = null;<br>  private JSch jsch = null;<br>  private Session session = null;</p>
+<p>  public SshExecuter(){</p>
+<p>  }</p>
+<p>  /**</p>
+<ul>
+<li><p>使用java给Linux发送命令，接受返回的消息</p>
+</li>
+<li><p>@param userName 用户名</p>
+</li>
+<li><p>@param password 密码</p>
+</li>
+<li><p>@param host 服务器地址</p>
+</li>
+<li><p>@param port 端口号</p>
+</li>
+<li><p>@param cmd 要运行的命令</p>
+</li>
+<li><p>@return</p>
+</li>
+<li><p>/
+public String jExecConn(String userName,String password,String host,int port,String cmd) {<br>  BufferedReader reader = null;<br>  ChannelExec channelExec = null;<br>  Session session = null;<br>  JSch jsch = null;<br>  try {</p>
+<pre><code>jsch = new JSch(); // 创建JSch对象
+session = jsch.getSession(userName, host, port); // 根据用户名，主机ip，端口获取一个Session对象
+session.setPassword(password); // 设置密码
+Properties config = new Properties();
+config.put(&quot;StrictHostKeyChecking&quot;, &quot;no&quot;);
+session.setConfig(config); // 为Session对象设置properties
+int timeout = 60000000;
+session.setTimeout(timeout); // 设置timeout时间
+session.connect(); // 通过Session建立链接
+
+channelExec = (ChannelExec) session.openChannel(&quot;exec&quot;);
+channelExec.setCommand(cmd);
+channelExec.setInputStream(null);
+channelExec.setErrStream(System.err);
+channelExec.connect();
+InputStream in = channelExec.getInputStream();
+reader = new BufferedReader(new InputStreamReader(in, Charset.forName(&quot;UTF-8&quot;)));
+String buf = null;
+StringBuffer sb = new StringBuffer();
+while ((buf = reader.readLine()) != null) {
+    sb.append(buf);
+    sb.append(&quot;;&quot;);
+}
+log.info(&quot;控制台打印结果共计&gt;{}行,\n内容为&gt;\n{}&quot;,sb.toString().split(&quot;;&quot;).length,sb.toString());
+return sb.toString();</code></pre><p>  } catch (JSchException e) {</p>
+<pre><code>e.printStackTrace();</code></pre><p>  } catch (IOException e) {</p>
+<pre><code>e.printStackTrace();</code></pre><p>  } finally {</p>
+<pre><code>if (null != session) {
+    session.disconnect();
+}
+if (null != channelExec) {
+    channelExec.disconnect();
+}
+try {
+    if (null != reader) {
+        reader.close();
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}</code></pre><p>  }<br>  return null;<br>}
+/**</p>
+</li>
+<li><p>测试：在main中运行  sshExecuter.jShellConn(username,password,host,port);</p>
+</li>
+<li><p>使用java连接linux的shell</p>
+</li>
+<li><p>@param userName 用户名</p>
+</li>
+<li><p>@param password 密码</p>
+</li>
+<li><p>@param host 服务器地址</p>
+</li>
+<li><p>@param port 端口号</p>
+</li>
+<li><p>@return</p>
+</li>
+<li><p>/
+public void jShellConn(String userName,String password,String host,int port) throws Exception {<br>  BufferedReader reader = null;<br>  ChannelShell channelShell = null;<br>  Session session = null;<br>  JSch jsch = null;<br>  jsch = new JSch(); // 创建JSch对象<br>  session = jsch.getSession(userName, host, port); // 根据用户名，主机ip，端口获取一个Session对象<br>  session.setPassword(password); // 设置密码<br>  Properties config = new Properties();<br>  config.put(“StrictHostKeyChecking”, “no”);<br>  session.setConfig(config); // 为Session对象设置properties<br>  int timeout = 60000000;<br>  session.setTimeout(timeout); // 设置timeout时间<br>  session.connect(); // 通过Session建立链接</p>
+<p>  channelShell = (ChannelShell) session.openChannel(“shell”);</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>    channelShell.setInputStream(System.in);
+    channelShell.setOutputStream(System.out);
+    channelShell.connect();
+}
+
+/**
+ * 执行一条命令，输出一个文件
+ * @param cmd
+ * @param outputFileName
+ * @return
+ * @throws Exception
+ */
+public long shell( String cmd, String outputFileName ) throws Exception{
+    long start = System.currentTimeMillis();
+    ChannelShell channelShell = (ChannelShell)session.openChannel( &quot;shell&quot; );
+    PipedInputStream pipeIn = new PipedInputStream();
+    PipedOutputStream pipeOut = new PipedOutputStream( pipeIn );
+    FileOutputStream fileOut = new FileOutputStream( outputFileName );
+    channelShell.setInputStream( pipeIn );
+    channelShell.setOutputStream( fileOut );
+    channelShell.connect( timeout );
+    pipeOut.write( cmd.getBytes() );
+    Thread.sleep( interval );
+    pipeOut.close();
+    pipeIn.close();
+    fileOut.close();
+    channelShell.disconnect();
+    return System.currentTimeMillis() - start;
+}
+
+/**
+ * 执行一条命令
+ * @param cmd
+ * @return
+ * @throws Exception
+ */
+public int exec( String cmd ) throws Exception{
+    ChannelExec channelExec = (ChannelExec)session.openChannel( &quot;exec&quot; );
+    channelExec.setCommand( cmd );
+    channelExec.setInputStream( null );
+    channelExec.setErrStream( System.err );
+    InputStream in = channelExec.getInputStream();
+    channelExec.connect();
+    int res = -1;
+    StringBuffer buf = new StringBuffer( 1024 );
+
+    byte[] tmp = new byte[ 1024 ];
+    String resTemp = null;
+    while ( true ) {
+        while ( in.available() &gt; 0 ) {
+            int i = in.read( tmp, 0, 1024 );
+            if ( i &lt; 0 ) break;
+            resTemp = new String( tmp, 0, i );
+            buf.append(resTemp);
+        }
+        if ( channelExec.isClosed() ) {
+            res = channelExec.getExitStatus();
+            log.info( format( &quot;Exit-status: %d&quot;, res ) );
+            break;
+        }
+    }
+    log.info(&quot;执行命令{}后返回的结果集为&gt;\n{}&quot;,cmd , buf.toString() );
+    channelExec.disconnect();
+    return res;
+}
+ChannelExec channelExec;
+public byte[] execReturnByte( String cmd ) throws Exception{
+    channelExec = (ChannelExec)session.openChannel( &quot;exec&quot; );
+    channelExec.setCommand( cmd );
+    channelExec.setInputStream( null );
+    channelExec.setErrStream( System.err );
+    InputStream in = channelExec.getInputStream();
+    channelExec.connect();
+    byte[] b= readFileByBytes(in);
+    channelExec.disconnect();
+    return b;
+}
+
+/**
+ * 执行linux命令并接收返回值
+ * @param cmd
+ * @return
+ * @throws Exception
+ */
+public String execs(String host, String cmd) throws Exception{
+    this.newInstance(host);
+    ChannelExec channelExec = (ChannelExec)session.openChannel( &quot;exec&quot; );
+    channelExec.setCommand( cmd );
+    channelExec.setInputStream( null );
+    channelExec.setErrStream( System.err );
+    InputStream in = channelExec.getInputStream();
+    channelExec.connect();
+    int res = -1;
+    StringBuffer buf = new StringBuffer( 1024 );
+    byte[] tmp = new byte[ 1024 ];
+    String resTemp = null;
+    while ( true ) {
+        while ( in.available() &gt; 0 ) {
+            int i = in.read( tmp, 0, 1024 );
+            if ( i &lt; 0 ) break;
+            resTemp = new String( tmp, 0, i );
+            buf.append(resTemp);
+        }
+        if ( channelExec.isClosed() ) {
+            res = channelExec.getExitStatus();
+            log.info( format( &quot;Exit-status: %d&quot;, res ) );
+            break;
+        }
+    }
+    log.info(&quot;执行命令{}后返回的结果集为&gt;\n{}&quot;,cmd , buf.toString() );
+    channelExec.disconnect();
+    return buf.toString();
+}
+
+/**
+ * 以字节为单位读取文件，常用于读二进制文件，如图片、声音、影像等文件。
+ */
+public static byte[] readFileByBytes(String fileName) {
+    InputStream in = null;
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    try {
+        in = new FileInputStream(fileName);
+        return readFileByBytes(in);
+    } catch (Exception e1) {
+        e1.printStackTrace();
+    }
+    return null;
+}
+public static byte[] readFileByBytes(InputStream in) {
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    try {
+        byte[] buf = new byte[1024];
+        int length = 0;
+        while ((length = in.read(buf)) != -1) {
+            out.write(buf, 0, length);
+        }
+    } catch (Exception e1) {
+        e1.printStackTrace();
+    } finally {
+        if (in != null) {
+            try {
+                in.close();
+            } catch (IOException e1) {
+            }
+        }
+    }
+    return out.toByteArray();
+}
+/**
+ * 使用Rsa私钥验证
+ * 返回一个SshExecuter实例对象
+ * 默认
+ *      端口22
+ *      私钥地址：/root/.ssh/id_rsa
+ *      登录用户 root
+ * @return
+ * @throws Exception
+ */
+public void newInstance(String host) throws Exception{
+
+    //String filePath = &quot;C:\\root\\3\\.ssh\\id_rsa&quot;;
+    String filePath = &quot;/root/.ssh/id_rsa&quot;;
+    String userName = &quot;root&quot;;
+
+    JSch jsch = new JSch();
+    jsch.addIdentity(filePath,&quot;sailingadmin&quot;);
+    //jsch.setKnownHosts(&quot;C:\\Users\\3\\.ssh\\known_hosts&quot;);
+    session=jsch.getSession(userName, host, 22);
+    Properties config = new Properties();
+    config.put(&quot;StrictHostKeyChecking&quot;, &quot;no&quot;);
+    session.setConfig(config);
+    session.connect();
+
+}
+/**
+ * 使用密码验证
+ * 返回一个SshExecuter实例对象
+ * @return
+ * @throws Exception
+ */
+public static SshExecuter newInstance(String host,Integer port,String user,String password) throws JSchException {
+    String key = &quot;&quot;;
+    String passPhrase = &quot;&quot;;
+    SshInfo i = new SshInfo( host, port, user, key, passPhrase,password );
+    return new SshExecuter( i );
+}
+/**
+ * 建立连接
+ * @param info
+ * @throws Exception
+ */
+private SshExecuter( SshInfo info ) throws JSchException {
+
+    sshInfo = info;
+    jsch = new JSch();
+
+    //如果不使用rsa指纹验证，请删除 1 2 代码,将 3 代码放开
+    // 1、
+    //jsch.addIdentity( sshInfo.getKey() );
+
+    session = jsch.getSession(  sshInfo.getUser(),
+            sshInfo.getHost(),
+            sshInfo.getPort() );
+
+    //2、
+    //UserInfo ui = new SshUserInfo( sshInfo.getPassPhrase() );
+    //session.setUserInfo( ui );
+
+    //3、
+    session.setPassword(info.getPassword());
+    session.setConfig(&quot;userauth.gssapi-with-mic&quot;, &quot;no&quot;);
+    session.setConfig(&quot;StrictHostKeyChecking&quot;, &quot;no&quot;);
+
+
+    session.connect();
+}
+
+/**
+ * 获得session
+ * @return
+ */
+public Session getSession(){
+    return session;
+}
+
+/**
+ * 关闭连接
+ * @throws IOException
+ */
+public void close()  throws IOException{
+    getSession().disconnect();
+}</code></pre><p>}</p>
+<p></p></pre><p></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/05/Jsch基本使用/" data-id="cjwa2g0l7000ptwvbf0yntvua" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Zookeeper闲谈" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/27/Zookeeper闲谈/" class="article-date">
+  <time datetime="2018-02-27T02:11:16.000Z" itemprop="datePublished">2018-02-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/27/Zookeeper闲谈/">Zookeeper闲谈</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面应该还是有有关zk的master选举相关的内容，等有空再补一下</p>
+<hr>
+<b>Zk中的专业术语</b><br>
+<pre>
+epoch周期值
+acceptedEpoch（比喻：年号）：follower已经接受leader更改年好的（newepoch）提议。
+currentEpoch（比喻：当前的年号）：当前的年号
+lastZxid：history中最近接收到的提议zxid(最大的值)
+history：当前节点接受到事务提议的log
+</pre>
+<h1>4.ZkClient    </h1>
+<ol>
+<li>优点1：递归创建</li>
+<li>优点2：递归删除</li>
+<li>优点3：避免不存在异常</li>
+</ol>
+<h2>ZkClient注册事件：</h2>
+原文demo在com.dongnao.demo.client下
+<pre>
+subscribeChildChanges/unsubscribeChildChanges(节点变化)
+subscribeDataChanges/unsubscribeDataChanges（数据变化）
+</pre>
+
+
+<h1>Curator</h1>
+原文demo在com.dongnao.demo.curator下
+<h2>curator连接ZK应用最广泛的工具。</h2>
+<ol>
+<li>zk应用场景（分布式锁，Master选举等等），curator包含了这些场景。</li>
+<li>2.    应用场景出现极端的情况下，curator考虑。</li>
+</ol>
+<h2>Backoff退避算法：</h2>
+<ol>
+<li>重试一次，如果网络出现阻塞。
+<pre>
+    22：25  request1（block）
+    22：26  request2（毫无意义）
+    22：27  request3（毫无意义）
+    22：28  request4（通顺）request2、3、4
+
+</pre></li>
+<li>数间隔重试，比如第一次1分钟，第二次2分钟......随着时间的推移，重试间隔越长。</li></ol>
+
+<h2>重点：Curator时间监听：</h2>
+<pre>
+NodeCache：节点处理监听（会使用缓存）。回调接口NodeCacheListener
+PathChildrenCache：子节点缓存，处理子节点变化。回调接口PathChildrenCacheListener
+TreeCache：NodeCache和PathChildrenCache的结合体。回调接口TreeCacheCacheListener
+</pre>
+
+<h1>5.Zookeeper实现分布式锁</h1>
+2018年1月31日 
+缺点：“惊群效应”<br>
+<hr>
+2018年1月31日更新
+关于订单类com.dongnao.demo.lock.OrderServiceImpl
+中的分布式锁com.dongnao.demo.lock.ImproveLock的相关解释
+<pre><ol>
+<li>在OrderServiceImpl的业务场景中申明了CountDownLatch线程计数器，以及模拟了100个线程并发的情况</li>
+<li>在分布式锁ImproveLock中
+<ol><li>tryLock(),如果currentPath为空则为第一次尝试加锁，第一次加锁赋值currentPath：<br>如果currentPath等于当前建立的第一个临时顺序节点：0000000400，返回true加锁成功<br>如果当前节点在所有节点中排名中不是排名第一，则获取前面的节点名称，并赋值给beforePath,返回Lock()中等待waitForLock(),<br></li>
+<li>在waitForLock(),设置beforePath监听器监听subscribeDataChanges===>IZkDataListener可以解决惊群效应</li>
+</ol>
+</li>
+</ol></pre>
+<hr>
+<pre>有些分布式系统master-slave，master是一个单节点（备份master-back）。
+     实际的案例：Hadoop（NameNode、ResourceManager），普通的部署NameNode、ResourceManager仅仅是单节点。Hadoop HA（NameNode和ResourceManager有多个备份）
+     说明：统一的一个临时节点：ActiveOrStandByLock（/distibuted_system/ActiveOrStandByLock仅仅这样一个节点）
+     第一步：zk有这样一个持久节点/distibuted_system
+     第二步：master1和master2同时启动，同时向向/distributed_system这个节点申请创建临时子节点ActiveOrStandByLock（同一时间只有一个请求能够创建成功）。
+         如果master1创建成功，这个节点（ActiveOrStandByLock）就不允许master2创建（锁的机制）
+         master1：active===》真正的master。路径：/distributed_system/ActiveOrStandByLock
+         master2：改为standby（master-back）。
+         同时对/distributed_system/ActiveOrStandByLock注册事件监听。
+     第三步：master1挂掉或者超过一定时间。节点会被删除（事件机制就会起作用），就会通知master2，master2就会在/distributed_system/ActiveOrStandByLock，同时修改状态为active。
+     备注：假如master1并没有挂掉，只有由于网络延时导致，当网络顺畅的时候就会出现“脑裂”状态。都认为自己是active。
+     解决脑裂的办法：对/distributed_system/ActiveOrStandByLock加一个权限ACL控制。master1对于这个节点/distributed_system/ActiveOrStandByLock没有权限。自己把状态改成standby。
+</pre>
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/1123.png"></image>
+<hr>
+Election的实现FastLeaderElection选举类源码分析<br>
+<pre>
+QuorumCnxManager：主要完成服务器间的网络交互<br>
+    senderWorkerMap 主要用于发送
+    queueSendMap主要用于发送
+        SendWorker用于发送器,底层连接的<sid,socket>
+        RecvWorker用于接收器
+    lastMessageSent最后一条发送的消息
+    QuorumPeer 半数对等协议,在初始化的过程中出现,饱含选举IP地址 选举port等状态
+Notification:表示服务器节点收到的选票信息
+    version:
+    leader:Proposed leader
+    zxid:zxid of the proposed leader
+    electionEpoch:Epoch
+    QuorumPeer.ServerState:LOOKING, FOLLOWING, LEADING(广播状态), OBSERVING;
+    sid:Address of sender
+    peerEpoch:epoch of the proposed leader
+lookForLeader():
+    recvset：存储本节点来自其他节点的选票(投票用)<br>
+    outofelection：存储本节点从其他节点由following、leading状态发送来的选票（选举确认用）<br>
+    updateProposal(参与者的选票,最后的logger的zxid,返回当前的年号):更新选票,第一次投票给自己
+    sendNotifications();放置发送队列中
+    循环...(选举没有stop)
+    recvqueue.poll():获取到一张消息
+        进行检查:
+            网断
+            发送队列为0
+                重连所有的socket连接
+                tmpTimeOut退避策略*2
+    self.getVotingView().containsKey(n.sid):是否包含当前的sid:
+         LOG.warn(发送自不在本集群的消息)
+         Notification消息的状态:
+             LOOKING:
+                 n.electionEpoch > logicalclock:
+                     logicalclock = n.electionEpoch;
+                    recvset.clear();
+                    totalOrderPredicate():投票对比:周期Epoch大||Zxid大||myid:
+                    updateProposal()跟新选票成为本地的选票
+                    sendNotifications()发送队列
+                n.electionEpoch < logicalclock:
+                    ignore 
+                n.electionEpoch = logicalclock:
+                    对比totalOrderPredicate()
+                    pdateProposal();
+                    sendNotifications();
+                recvset.put():将选票放置进收件箱
+                termPredicate():是否要结束选举
+                    vote.equals(votes):遍历选票
+                    containsQuorum(set):过半监测
+                        校验/返回endVote选票
+            FOLLOWING:
+            LEADING:
+                前头的半数检测协议
+                checkLeader():
+                    leader的状态
+                    比较周期
+                构造新选票并且返回        
+
+
+<p></p></sid,socket></pre><p></p>
+
+Vote 选票<br>****
+QuorumPeer 是zk服务器实例类<br>
+QuorumPeer.QuorumServer 存储zk server连接信息<br>
+<hr>
+<b>主要实现函数：</b><br>
+lookForLeader：选举过程（主要函数）<br>
+totalOrderPredicate：比较选票<br>
+termPredicate：是否结束选举<br>
+
+<p>senderWorkerMap：主要用于发送<br><br>queueSendMap：发送队列<br><br>SendWorker：发送器<br><br>RecvWorker：接收器<br><br>lastMessageSent：最后一条发送消息<br><br>Notification：表示该服务器节点收到选票信息<br><br>recvset：存储本节点来自其他节点的选票(投票用)<br><br>outofelection：存储本节点从其他节点由following、leading状态发送来的选票（选举确认用）<br></p>
+<hr>
+<h2>Zookeeper Master选举</h2>
+2018年1月31日 
+<ol><li>
+用Tomcat模拟一个实现Master选举过程(应用tomcat 阀com.dongnao.demo.election.ZkTomcatValve)</li><li>
+使用acl处理脑裂的代码</li></ol>
+<h1>Zookeeper基本模型</h1>
+<ol><li>
+持久节点（除非主动删除，zk不会做清理工作）</li><li>
+临时节点（随着session会话消亡，而消亡）</li><li>
+持久顺序节点</li><li>
+临时顺序节点</li></ol>
+<h2>数据模型——节点</h2>
+树模型（采用文件系统的形式，只不过去掉文件和目录），叫数据节点。
+<h2>ACL——权限控制</h2>
+org.apache.zookeeper.ZooDefs.Ids
+<hr>
+对于一个节点可操作的权限有5种：
+<pre>
+READ（只读）
+WRITE（只写）
+CREATE（创建）
+DELETE（删除）
+ADMIN（节点管理权限）(对节点的删除和创建的权限)
+</pre>
+ACL机制：权限模式（Schema）、授权对象（ID）、权限（Permission）
+<ol><li>
+1.    world：开放模式。意思所有人都可以访问。</li><li>
+2.    IP：   针对某个开放权限</li><li>
+3.    digest：用户/密码模式</li><li>
+4.    Super：超级用户模式</li></ol>
+<pre>
+
+<p></p></pre><br>使用密文：<pre><br>setAcl path digest|ip:username:password:c|d|r|w|a</pre><br>密文生成org.apache.zookeeper.server.auth.DigestAuthenticationProvider<p></p>
+<p>使用明文：<pre><br>   addauth digest username:password<br>   setAcl /path auth:username:password:cdrwa</pre><br>删除节点的bug</p>
+<pre>rmr / delete</pre>
+
+<p>密文命令（执行目录在zk根目录）：<pre><br>java -cp ./zookeeper-3.4.6.jar:./lib/log4j-1.2.16.jar:./lib/slf4j-api-1.6.1.jar:./lib/slf4j-log4j12-1.6.1.jar org.apache.zookeeper.server.auth.DigestAuthenticationProvider user1:12345<br></pre></p>
+<h2>版本</h2>
+
+<p>cversion 当前节点的权限<br><br>dataversion 当前节点数据内容的版本号<br><br>aclVersion  就是ACL版本号<br><br>zookeeper版本的含义：版本指的是变更的次数。<br><br>CAS（compare and swap）比较然后交换。<br></p>
+<h2>Watcher</h2>
+org.apache.zookeeper.ZooKeeper
+org.apache.zookeeper.Watcher
+org.apache.zookeeper.server.DataTree
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/Watcher.png"></image>
+
+<h3>客户端：</h3>
+<pre>
+Zookeeper （getChild）
+Cliencnxn
+WatchRegistration
+SendThread
+Packet(creatBB经过处理，简单化)
+ZKWatchManager
+</pre>
+<h3>服务端：</h3>
+<pre>
+FinalRequestProcessor
+WatchManager（triggerWatcher）
+SendThread.readResponse
+EventThread</pre>
+<hr>
+2018年2月1日  内容:zookeeper的事件监听的机制源码分析<br>
+ps:也是似懂非懂蒙蔽中
+Zookeeper Class中的构造方法中我们可以看到
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/Zookeeper构造方法.png"></image>
+会传入一个Watch的一个事件监听体系<br>
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/Zookeeper.getData.png"></image>
+接下来,进入到submitRequest()中,
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/ClientCnxn.submitRequest.png"></image>
+话分两头单表一支<br>
+封装的packet会进行线程中发送
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/ClientCnxn.sendPacket.png"></image>
+在这个SendThread是完全的继承自java的Thread线程<br>
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/SendThread hierarchy.png"></image>
+在这个方法中是将前面的Packet封装的具体实现,并且是在同步块中会将<b>outgoingqueue</b>进行输出
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/ClientCnxn.queuePacket.png"></image>
+其中底层的实现还是NIO通信
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/ClientCnxnSocketNIO.png"></image>
+但是还是由于并发的信息量过大的缘故,所以还需要进行再次反序列化以及进行封装
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/ClientCnxnSocketNIO.snedPacket.png"></image>
+createBB的具体的实现
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/ClientCnxn.Packet.createBB.png"></image>
+<hr>
+到了finnish阶段,会存储到ClientWatchManager中的三个map中
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/ClientCnxn.finishPacket.png"></image>
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/Zookeeper.WatcherRegister.register.png"></image>
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/Zookeeper.WatcherRegister.getwatcher.png"></image>
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/ZKWatchManager.getWatches.png"></image>
+在线程处理阶段会对操作数进行判断处理
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/FinalRequestProcess.process.png"></image>
+已getData操作进行验证,
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/getData操作数.png"></image>
+在完成事件中添加触发的机制
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/WatchManager.triggerWatch.png"></image>
+在sendThread中的readermeResponse中添加回调判断已经执行的操作数,并且在event中的EventThread中进行性处理
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/SendThread.readResponse.png"></image>
+添加时间监听机制在判断完操作数
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/SendThread.readResponse.getXid.png"></image>
+在EventThread中对事件进行处理
+<image src="https://raw.githubusercontent.com/WangSiwang/zookeeper-demo/master/zookeeper-demo/src/resource/EventThread.png"></image>
+<hr>
+终于完了,视频听了三遍还是迷迷糊糊的,欢迎各位dalao指教...嗯有空了把master选举的源码分析也作出来,快两点了..好饿..要去吃饭了...
+<hr>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/27/Zookeeper闲谈/" data-id="cjwa2g0l7000qtwvb0w5z6b1o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/30/获取资源路径方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/编程基础/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/线程数用完/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/百度配置管理/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/查询pid/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

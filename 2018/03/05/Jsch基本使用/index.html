@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Jsch基本使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="直接贴代码,不墨迹 这个代码是指的是使用用户名密码,稍后会跟新使用ssh  package com.sailing.docker.manager.install.util;  import com.jcraft.jsch.*;import com.sailing.docker.manager.install.entity.SshInfo;import lombok.extern.slf4j.Slf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jsch基本使用">
+<meta property="og:url" content="http://yoursite.com/2018/03/05/Jsch基本使用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="直接贴代码,不墨迹 这个代码是指的是使用用户名密码,稍后会跟新使用ssh  package com.sailing.docker.manager.install.util;  import com.jcraft.jsch.*;import com.sailing.docker.manager.install.entity.SshInfo;import lombok.extern.slf4j.Slf">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-29T16:16:15.983Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jsch基本使用">
+<meta name="twitter:description" content="直接贴代码,不墨迹 这个代码是指的是使用用户名密码,稍后会跟新使用ssh  package com.sailing.docker.manager.install.util;  import com.jcraft.jsch.*;import com.sailing.docker.manager.install.entity.SshInfo;import lombok.extern.slf4j.Slf">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Jsch基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/05/Jsch基本使用/" class="article-date">
+  <time datetime="2018-03-05T05:45:59.000Z" itemprop="datePublished">2018-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Jsch基本使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1>直接贴代码,不墨迹</h1>
+<h2>这个代码是指的是使用用户名密码,稍后会跟新使用ssh</h2>
+<pre>
+package com.sailing.docker.manager.install.util;
+
+<p>import com.jcraft.jsch.*;<br>import com.sailing.docker.manager.install.entity.SshInfo;<br>import lombok.extern.slf4j.Slf4j;<br>import org.junit.Test;</p>
+<p>import java.io.*;<br>import java.nio.charset.Charset;<br>import java.util.Properties;</p>
+<p>import static java.lang.String.format;</p>
+<p>/**</p>
+<ul>
+<li><p>create by wsw</p>
+</li>
+<li><p>ssh连接的工具类</p>
+</li>
+<li><p>/
+@Slf4j<br>public class SshExecuter implements Closeable{<br>  static long interval = 1000L;<br>  static int timeout = 3000;<br>  private SshInfo sshInfo = null;<br>  private JSch jsch = null;<br>  private Session session = null;</p>
+<p>  public SshExecuter(){</p>
+<p>  }</p>
+<p>  /**</p>
+<ul>
+<li><p>使用java给Linux发送命令，接受返回的消息</p>
+</li>
+<li><p>@param userName 用户名</p>
+</li>
+<li><p>@param password 密码</p>
+</li>
+<li><p>@param host 服务器地址</p>
+</li>
+<li><p>@param port 端口号</p>
+</li>
+<li><p>@param cmd 要运行的命令</p>
+</li>
+<li><p>@return</p>
+</li>
+<li><p>/
+public String jExecConn(String userName,String password,String host,int port,String cmd) {<br>  BufferedReader reader = null;<br>  ChannelExec channelExec = null;<br>  Session session = null;<br>  JSch jsch = null;<br>  try {</p>
+<pre><code>jsch = new JSch(); // 创建JSch对象
+session = jsch.getSession(userName, host, port); // 根据用户名，主机ip，端口获取一个Session对象
+session.setPassword(password); // 设置密码
+Properties config = new Properties();
+config.put(&quot;StrictHostKeyChecking&quot;, &quot;no&quot;);
+session.setConfig(config); // 为Session对象设置properties
+int timeout = 60000000;
+session.setTimeout(timeout); // 设置timeout时间
+session.connect(); // 通过Session建立链接
+
+channelExec = (ChannelExec) session.openChannel(&quot;exec&quot;);
+channelExec.setCommand(cmd);
+channelExec.setInputStream(null);
+channelExec.setErrStream(System.err);
+channelExec.connect();
+InputStream in = channelExec.getInputStream();
+reader = new BufferedReader(new InputStreamReader(in, Charset.forName(&quot;UTF-8&quot;)));
+String buf = null;
+StringBuffer sb = new StringBuffer();
+while ((buf = reader.readLine()) != null) {
+    sb.append(buf);
+    sb.append(&quot;;&quot;);
+}
+log.info(&quot;控制台打印结果共计&gt;{}行,\n内容为&gt;\n{}&quot;,sb.toString().split(&quot;;&quot;).length,sb.toString());
+return sb.toString();</code></pre><p>  } catch (JSchException e) {</p>
+<pre><code>e.printStackTrace();</code></pre><p>  } catch (IOException e) {</p>
+<pre><code>e.printStackTrace();</code></pre><p>  } finally {</p>
+<pre><code>if (null != session) {
+    session.disconnect();
+}
+if (null != channelExec) {
+    channelExec.disconnect();
+}
+try {
+    if (null != reader) {
+        reader.close();
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}</code></pre><p>  }<br>  return null;<br>}
+/**</p>
+</li>
+<li><p>测试：在main中运行  sshExecuter.jShellConn(username,password,host,port);</p>
+</li>
+<li><p>使用java连接linux的shell</p>
+</li>
+<li><p>@param userName 用户名</p>
+</li>
+<li><p>@param password 密码</p>
+</li>
+<li><p>@param host 服务器地址</p>
+</li>
+<li><p>@param port 端口号</p>
+</li>
+<li><p>@return</p>
+</li>
+<li><p>/
+public void jShellConn(String userName,String password,String host,int port) throws Exception {<br>  BufferedReader reader = null;<br>  ChannelShell channelShell = null;<br>  Session session = null;<br>  JSch jsch = null;<br>  jsch = new JSch(); // 创建JSch对象<br>  session = jsch.getSession(userName, host, port); // 根据用户名，主机ip，端口获取一个Session对象<br>  session.setPassword(password); // 设置密码<br>  Properties config = new Properties();<br>  config.put(“StrictHostKeyChecking”, “no”);<br>  session.setConfig(config); // 为Session对象设置properties<br>  int timeout = 60000000;<br>  session.setTimeout(timeout); // 设置timeout时间<br>  session.connect(); // 通过Session建立链接</p>
+<p>  channelShell = (ChannelShell) session.openChannel(“shell”);</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>    channelShell.setInputStream(System.in);
+    channelShell.setOutputStream(System.out);
+    channelShell.connect();
+}
+
+/**
+ * 执行一条命令，输出一个文件
+ * @param cmd
+ * @param outputFileName
+ * @return
+ * @throws Exception
+ */
+public long shell( String cmd, String outputFileName ) throws Exception{
+    long start = System.currentTimeMillis();
+    ChannelShell channelShell = (ChannelShell)session.openChannel( &quot;shell&quot; );
+    PipedInputStream pipeIn = new PipedInputStream();
+    PipedOutputStream pipeOut = new PipedOutputStream( pipeIn );
+    FileOutputStream fileOut = new FileOutputStream( outputFileName );
+    channelShell.setInputStream( pipeIn );
+    channelShell.setOutputStream( fileOut );
+    channelShell.connect( timeout );
+    pipeOut.write( cmd.getBytes() );
+    Thread.sleep( interval );
+    pipeOut.close();
+    pipeIn.close();
+    fileOut.close();
+    channelShell.disconnect();
+    return System.currentTimeMillis() - start;
+}
+
+/**
+ * 执行一条命令
+ * @param cmd
+ * @return
+ * @throws Exception
+ */
+public int exec( String cmd ) throws Exception{
+    ChannelExec channelExec = (ChannelExec)session.openChannel( &quot;exec&quot; );
+    channelExec.setCommand( cmd );
+    channelExec.setInputStream( null );
+    channelExec.setErrStream( System.err );
+    InputStream in = channelExec.getInputStream();
+    channelExec.connect();
+    int res = -1;
+    StringBuffer buf = new StringBuffer( 1024 );
+
+    byte[] tmp = new byte[ 1024 ];
+    String resTemp = null;
+    while ( true ) {
+        while ( in.available() &gt; 0 ) {
+            int i = in.read( tmp, 0, 1024 );
+            if ( i &lt; 0 ) break;
+            resTemp = new String( tmp, 0, i );
+            buf.append(resTemp);
+        }
+        if ( channelExec.isClosed() ) {
+            res = channelExec.getExitStatus();
+            log.info( format( &quot;Exit-status: %d&quot;, res ) );
+            break;
+        }
+    }
+    log.info(&quot;执行命令{}后返回的结果集为&gt;\n{}&quot;,cmd , buf.toString() );
+    channelExec.disconnect();
+    return res;
+}
+ChannelExec channelExec;
+public byte[] execReturnByte( String cmd ) throws Exception{
+    channelExec = (ChannelExec)session.openChannel( &quot;exec&quot; );
+    channelExec.setCommand( cmd );
+    channelExec.setInputStream( null );
+    channelExec.setErrStream( System.err );
+    InputStream in = channelExec.getInputStream();
+    channelExec.connect();
+    byte[] b= readFileByBytes(in);
+    channelExec.disconnect();
+    return b;
+}
+
+/**
+ * 执行linux命令并接收返回值
+ * @param cmd
+ * @return
+ * @throws Exception
+ */
+public String execs(String host, String cmd) throws Exception{
+    this.newInstance(host);
+    ChannelExec channelExec = (ChannelExec)session.openChannel( &quot;exec&quot; );
+    channelExec.setCommand( cmd );
+    channelExec.setInputStream( null );
+    channelExec.setErrStream( System.err );
+    InputStream in = channelExec.getInputStream();
+    channelExec.connect();
+    int res = -1;
+    StringBuffer buf = new StringBuffer( 1024 );
+    byte[] tmp = new byte[ 1024 ];
+    String resTemp = null;
+    while ( true ) {
+        while ( in.available() &gt; 0 ) {
+            int i = in.read( tmp, 0, 1024 );
+            if ( i &lt; 0 ) break;
+            resTemp = new String( tmp, 0, i );
+            buf.append(resTemp);
+        }
+        if ( channelExec.isClosed() ) {
+            res = channelExec.getExitStatus();
+            log.info( format( &quot;Exit-status: %d&quot;, res ) );
+            break;
+        }
+    }
+    log.info(&quot;执行命令{}后返回的结果集为&gt;\n{}&quot;,cmd , buf.toString() );
+    channelExec.disconnect();
+    return buf.toString();
+}
+
+/**
+ * 以字节为单位读取文件，常用于读二进制文件，如图片、声音、影像等文件。
+ */
+public static byte[] readFileByBytes(String fileName) {
+    InputStream in = null;
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    try {
+        in = new FileInputStream(fileName);
+        return readFileByBytes(in);
+    } catch (Exception e1) {
+        e1.printStackTrace();
+    }
+    return null;
+}
+public static byte[] readFileByBytes(InputStream in) {
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    try {
+        byte[] buf = new byte[1024];
+        int length = 0;
+        while ((length = in.read(buf)) != -1) {
+            out.write(buf, 0, length);
+        }
+    } catch (Exception e1) {
+        e1.printStackTrace();
+    } finally {
+        if (in != null) {
+            try {
+                in.close();
+            } catch (IOException e1) {
+            }
+        }
+    }
+    return out.toByteArray();
+}
+/**
+ * 使用Rsa私钥验证
+ * 返回一个SshExecuter实例对象
+ * 默认
+ *      端口22
+ *      私钥地址：/root/.ssh/id_rsa
+ *      登录用户 root
+ * @return
+ * @throws Exception
+ */
+public void newInstance(String host) throws Exception{
+
+    //String filePath = &quot;C:\\root\\3\\.ssh\\id_rsa&quot;;
+    String filePath = &quot;/root/.ssh/id_rsa&quot;;
+    String userName = &quot;root&quot;;
+
+    JSch jsch = new JSch();
+    jsch.addIdentity(filePath,&quot;sailingadmin&quot;);
+    //jsch.setKnownHosts(&quot;C:\\Users\\3\\.ssh\\known_hosts&quot;);
+    session=jsch.getSession(userName, host, 22);
+    Properties config = new Properties();
+    config.put(&quot;StrictHostKeyChecking&quot;, &quot;no&quot;);
+    session.setConfig(config);
+    session.connect();
+
+}
+/**
+ * 使用密码验证
+ * 返回一个SshExecuter实例对象
+ * @return
+ * @throws Exception
+ */
+public static SshExecuter newInstance(String host,Integer port,String user,String password) throws JSchException {
+    String key = &quot;&quot;;
+    String passPhrase = &quot;&quot;;
+    SshInfo i = new SshInfo( host, port, user, key, passPhrase,password );
+    return new SshExecuter( i );
+}
+/**
+ * 建立连接
+ * @param info
+ * @throws Exception
+ */
+private SshExecuter( SshInfo info ) throws JSchException {
+
+    sshInfo = info;
+    jsch = new JSch();
+
+    //如果不使用rsa指纹验证，请删除 1 2 代码,将 3 代码放开
+    // 1、
+    //jsch.addIdentity( sshInfo.getKey() );
+
+    session = jsch.getSession(  sshInfo.getUser(),
+            sshInfo.getHost(),
+            sshInfo.getPort() );
+
+    //2、
+    //UserInfo ui = new SshUserInfo( sshInfo.getPassPhrase() );
+    //session.setUserInfo( ui );
+
+    //3、
+    session.setPassword(info.getPassword());
+    session.setConfig(&quot;userauth.gssapi-with-mic&quot;, &quot;no&quot;);
+    session.setConfig(&quot;StrictHostKeyChecking&quot;, &quot;no&quot;);
+
+
+    session.connect();
+}
+
+/**
+ * 获得session
+ * @return
+ */
+public Session getSession(){
+    return session;
+}
+
+/**
+ * 关闭连接
+ * @throws IOException
+ */
+public void close()  throws IOException{
+    getSession().disconnect();
+}</code></pre><p>}</p>
+<p></p></pre><p></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/05/Jsch基本使用/" data-id="cjwa2g0l7000ptwvbf0yntvua" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/15/记一次修改voovan框架BUG的经历/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          记一次修改voovan框架BUG的经历
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/02/27/Zookeeper闲谈/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Zookeeper闲谈</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/30/获取资源路径方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/编程基础/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/线程数用完/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/百度配置管理/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/查询pid/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

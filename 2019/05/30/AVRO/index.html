@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Avro RPC简介  RPCRPC逻辑上分为二层，一是传输层，负责网络通信；二是协议层，将数据按照一定协议格式打包和解包从序列化方式来看，Apache Thrift 和Google的Protocol Buffers和Avro应该是属于同一个级别的框架，都能跨语言，性能优秀，数据精简，但是Avro的动态模式（不用生成代码，而且性能很好）这个特点让人非常喜欢，比较适合RPC的数据交换。    Av">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/AVRO/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Avro RPC简介  RPCRPC逻辑上分为二层，一是传输层，负责网络通信；二是协议层，将数据按照一定协议格式打包和解包从序列化方式来看，Apache Thrift 和Google的Protocol Buffers和Avro应该是属于同一个级别的框架，都能跨语言，性能优秀，数据精简，但是Avro的动态模式（不用生成代码，而且性能很好）这个特点让人非常喜欢，比较适合RPC的数据交换。    Av">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-29T16:16:12.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Avro RPC简介  RPCRPC逻辑上分为二层，一是传输层，负责网络通信；二是协议层，将数据按照一定协议格式打包和解包从序列化方式来看，Apache Thrift 和Google的Protocol Buffers和Avro应该是属于同一个级别的框架，都能跨语言，性能优秀，数据精简，但是Avro的动态模式（不用生成代码，而且性能很好）这个特点让人非常喜欢，比较适合RPC的数据交换。    Av">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-AVRO" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/AVRO/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.946Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>Avro RPC简介</li>
+<li><ol>
+<li>RPC<br>RPC逻辑上分为二层，一是传输层，负责网络通信；二是协议层，将数据按照一定协议格式打包和解包<br>从序列化方式来看，Apache Thrift 和Google的Protocol Buffers和Avro应该是属于同一个级别的框架，都能跨语言，性能优秀，数据精简，但是Avro的动态模式（不用生成代码，而且性能很好）这个特点让人非常喜欢，比较适合RPC的数据交换。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Avro RPC的主要特点<br>Avro RPC 是一个支持跨语言实现的RPC服务框架。非常轻量级，实现简洁，使用方便，同时支持使用者进行二次开发，逻辑上该框架分为两层：</li>
+</ol>
+</li>
+</ol>
+<p>网络传输层使用Netty的Nio实现。<br>协议层可扩展，目前支持的数据序列化方式有Avro，Protocol Buffers ，Json, Hessian,Java序列化。 使用者可以注册自己的协议格式及序列化方式。<br>Avro RPC主要特点：</p>
+<p>客户端传输层与应用层逻辑分离，传输层主要职责包括创建连接，连接查找与复用，传输数据，接收服务端回复后回调应用层；<br>客户端支持同步调用和异步调用。服务异步化能很好的提高系统吞吐量，建议使用异步调用。为防止异步发送请求过快，客户端增加了“请求流量限制”功能；<br>服务端有一个协议注册工厂和序列化注册工厂。这样方便针对不同的应用场景来定制服务方式。RPC应该只是服务方式的一种。在分布式的系统架构中，分布式节点之间的通信会存在多种方式，比如MQ的TOP消息，一个消息可以有多个订阅者。因此avro-rpc不仅仅是一个RPC服务框架，还是一个分布式通信的一个基础骨架，提供了很好的扩展性；<br>Avro序列化框架是Hadoop下的一个子项目，其特点是数据序列化不带标签，因此序列化后的数据非常小。支持动态解析, 不像Thrift 与 Protocol Buffers必须根据IDL来生成代码，这样侵入性有点强。性能很好，基本上和 Protocol Buffers差不多；</p>
+<ol start="2">
+<li><p>Avro RPC开发</p>
+</li>
+<li><p>1 Maven依赖<br>Java代码  收藏代码</p>
+<?xml version="1.0" encoding="UTF-8"?><p><br>&lt;project xmlns=”<a href="http://maven.apache.org/POM/4.0.0&quot;" target="_blank" rel="noopener">http://maven.apache.org/POM/4.0.0&quot;</a>  </p>
+<pre><code>xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;  
+xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;  </code></pre><p>  <modelversion>4.0.0</modelversion>  </p>
+<p>  <groupid>learn</groupid><br>  <artifactid>learn.avro</artifactid><br>  <version>1.0-SNAPSHOT</version>  </p>
+  <dependencies>  
+      <!--avro core-->  
+      <dependency>  
+          <groupid>org.apache.avro</groupid>  
+          <artifactid>avro</artifactid>  
+          <version>1.7.7</version>  
+      </dependency>  
+      <!--avro rpc support-->  
+      <dependency>  
+          <groupid>org.apache.avro</groupid>  
+          <artifactid>avro-ipc</artifactid>  
+          <version>1.7.7</version>  
+      </dependency>  
+  </dependencies>  
+  <build>  
+      <plugins>  
+          <plugin>  
+              <groupid>org.apache.avro</groupid>  
+              <artifactid>avro-maven-plugin</artifactid>  
+              <version>1.7.7</version>  
+              <executions>  
+                  <execution>  
+                      <phase>generate-sources</phase>  
+                      <goals>  
+                          <!--Maven goal that helps for code generation-->  
+                          <goal>schema</goal>  
+                          <!--For RPC used-->  
+                          <goal>protocol</goal>  
+                          <goal>idl-protocol</goal>  
+                      </goals>  
+                      <configuration>  
+                          <sourcedirectory>${project.basedir}/src/main/avro/</sourcedirectory>  
+                          <outputdirectory>${project.basedir}/src/main/java/</outputdirectory>  
+                      </configuration>  
+                  </execution>  
+              </executions>  
+          </plugin>  
+          <plugin>  
+              <groupid>org.apache.maven.plugins</groupid>  
+              <artifactid>maven-compiler-plugin</artifactid>  
+              <configuration>  
+                  <source>1.7  
+                  <target>1.7</target>  
+              </configuration>  
+          </plugin>  
+      </plugins>  
+  </build>  
+  
+
+
+</li>
+</ol>
+<p>2.2 定义协议schema文件(在src/main/avro/mail.avpr)<br>Js代码  收藏代码<br>{“namespace”: “examples.avro.rpc”,<br> “protocol”: “Mail”,  </p>
+<p> “types”: [<br>     {“name”: “Message”, “type”: “record”,<br>      “fields”: [<br>          {“name”: “to”,   “type”: “string”},<br>          {“name”: “from”, “type”: “string”},<br>          {“name”: “body”, “type”: “string”}<br>      ]<br>     }<br> ],  </p>
+<p> “messages”: {<br>     “send”: {<br>         “request”: [{“name”: “message”, “type”: “Message”}],<br>         “response”: “string”<br>     }<br> }<br>}  </p>
+<p>2.3 生成代码：<br>在Intellij Idea的Maven视图中,learn avro-&gt;Plugins-&gt;avro-&gt;avro:protocol,右击avro:protocol，执行Run Maven Build，生成protocol schema对应的Java实体类</p>
+<p>2.3.1 Mail接口<br>Java代码  收藏代码<br>/** </p>
+<ul>
+<li>Autogenerated by Avro </li>
+<li></li>
+<li>DO NOT EDIT DIRECTLY </li>
+<li>/  
+package examples.avro.rpc;  </li>
+</ul>
+<p>@SuppressWarnings(“all”)<br>@org.apache.avro.specific.AvroGenerated<br>public interface Mail {<br>    public static final org.apache.avro.Protocol PROTOCOL = org.apache.avro.Protocol.parse(“{&quot;protocol&quot;:&quot;Mail&quot;,&quot;namespace&quot;:&quot;example.proto&quot;,&quot;types&quot;:[{&quot;type&quot;:&quot;record&quot;,&quot;name&quot;:&quot;Message&quot;,&quot;fields&quot;:[{&quot;name&quot;:&quot;to&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;from&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;body&quot;,&quot;type&quot;:&quot;string&quot;}]}],&quot;messages&quot;:{&quot;send&quot;:{&quot;request&quot;:[{&quot;name&quot;:&quot;message&quot;,&quot;type&quot;:&quot;Message&quot;}],&quot;response&quot;:&quot;string&quot;}}}”);  </p>
+<pre><code>///Mail接口有1个方法send，参数是Message，Message是一个Avro类，可以序列化和反序列化  
+java.lang.CharSequence send(Message message) throws org.apache.avro.AvroRemoteException;  
+
+@SuppressWarnings(&quot;all&quot;)  
+public interface Callback extends Mail {  
+    public static final org.apache.avro.Protocol PROTOCOL = Mail.PROTOCOL;  
+
+    void send(Message message, org.apache.avro.ipc.Callback&lt;CharSequence&gt; callback) throws java.io.IOException;  
+}  </code></pre><p>}  </p>
+<p>2.3.2 Message类(根据schema文件生成)<br>Java代码  收藏代码<br>/** </p>
+<ul>
+<li><p>Autogenerated by Avro </p>
+</li>
+<li></li>
+<li><p>DO NOT EDIT DIRECTLY </p>
+</li>
+<li><p>/  
+package examples.avro.rpc;<br>@SuppressWarnings(“all”)<br>@org.apache.avro.specific.AvroGenerated<br>public class Message extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {<br>public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse(“{&quot;type&quot;:&quot;record&quot;,&quot;name&quot;:&quot;Message&quot;,&quot;namespace&quot;:&quot;example.proto&quot;,&quot;fields&quot;:[{&quot;name&quot;:&quot;to&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;from&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;body&quot;,&quot;type&quot;:&quot;string&quot;}]}”);<br>public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }<br>@Deprecated public java.lang.CharSequence to;<br>@Deprecated public java.lang.CharSequence from;<br>@Deprecated public java.lang.CharSequence body;  </p>
+<p>/** </p>
+<ul>
+<li>Default constructor.  Note that this does not initialize fields </li>
+<li>to their default values from the schema.  If that is desired then </li>
+<li>one should use <code>newBuilder()</code>.  </li>
+<li>/  
+public Message() {}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>All-args constructor. </li>
+<li>/  
+public Message(java.lang.CharSequence to, java.lang.CharSequence from, java.lang.CharSequence body) {<br>this.to = to;<br>this.from = from;<br>this.body = body;<br>}  </li>
+</ul>
+<p>public org.apache.avro.Schema getSchema() { return SCHEMA$; }<br>// Used by DatumWriter.  Applications should not call.<br>public java.lang.Object get(int field$) {<br>  switch (field$) {<br>  case 0: return to;<br>  case 1: return from;<br>  case 2: return body;<br>  default: throw new org.apache.avro.AvroRuntimeException(“Bad index”);<br>  }<br>}  
+// Used by DatumReader.  Applications should not call.<br>@SuppressWarnings(value=”unchecked”)<br>public void put(int field$, java.lang.Object value$) {<br>  switch (field$) {<br>  case 0: to = (java.lang.CharSequence)value$; break;<br>  case 1: from = (java.lang.CharSequence)value$; break;<br>  case 2: body = (java.lang.CharSequence)value$; break;<br>  default: throw new org.apache.avro.AvroRuntimeException(“Bad index”);<br>  }<br>}  </p>
+<p>/** </p>
+<ul>
+<li>Gets the value of the ‘to’ field. </li>
+<li>/  
+public java.lang.CharSequence getTo() {<br>return to;<br>}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>Sets the value of the ‘to’ field. </li>
+<li>@param value the value to set. </li>
+<li>/  
+public void setTo(java.lang.CharSequence value) {<br>this.to = value;<br>}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>Gets the value of the ‘from’ field. </li>
+<li>/  
+public java.lang.CharSequence getFrom() {<br>return from;<br>}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>Sets the value of the ‘from’ field. </li>
+<li>@param value the value to set. </li>
+<li>/  
+public void setFrom(java.lang.CharSequence value) {<br>this.from = value;<br>}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>Gets the value of the ‘body’ field. </li>
+<li>/  
+public java.lang.CharSequence getBody() {<br>return body;<br>}  </li>
+</ul>
+<p>/** </p>
+<ul>
+<li>Sets the value of the ‘body’ field. </li>
+<li>@param value the value to set. </li>
+<li>/  
+public void setBody(java.lang.CharSequence value) {<br>this.body = value;<br>}  </li>
+</ul>
+<p>/** Creates a new Message RecordBuilder */<br>public static Message.Builder newBuilder() {<br>  return new Message.Builder();<br>}  </p>
+<p>/** Creates a new Message RecordBuilder by copying an existing Builder */<br>public static Message.Builder newBuilder(Message.Builder other) {<br>  return new Message.Builder(other);<br>}  </p>
+<p>/** Creates a new Message RecordBuilder by copying an existing Message instance */<br>public static Message.Builder newBuilder(Message other) {<br>  return new Message.Builder(other);<br>}  </p>
+<p>/** </p>
+<ul>
+<li><p>RecordBuilder for Message instances. </p>
+</li>
+<li><p>/  
+public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<message><br>implements org.apache.avro.data.RecordBuilder<message> {  </message></message></p>
+<p>private java.lang.CharSequence to;<br>private java.lang.CharSequence from;<br>private java.lang.CharSequence body;  </p>
+<p>/** Creates a new Builder */<br>private Builder() {<br>  super(Message.SCHEMA$);<br>}  </p>
+<p>/** Creates a Builder by copying an existing Builder */<br>private Builder(Message.Builder other) {<br>  super(other);<br>  if (isValidValue(fields()[0], other.to)) {  </p>
+<pre><code>this.to = data().deepCopy(fields()[0].schema(), other.to);  
+fieldSetFlags()[0] = true;  </code></pre><p>  }<br>  if (isValidValue(fields()[1], other.from)) {  </p>
+<pre><code>this.from = data().deepCopy(fields()[1].schema(), other.from);  
+fieldSetFlags()[1] = true;  </code></pre><p>  }<br>  if (isValidValue(fields()[2], other.body)) {  </p>
+<pre><code>this.body = data().deepCopy(fields()[2].schema(), other.body);  
+fieldSetFlags()[2] = true;  </code></pre><p>  }<br>}  </p>
+<p>/** Creates a Builder by copying an existing Message instance */<br>private Builder(Message other) {  </p>
+<pre><code>super(Message.SCHEMA$);  </code></pre><p>  if (isValidValue(fields()[0], other.to)) {  </p>
+<pre><code>this.to = data().deepCopy(fields()[0].schema(), other.to);  
+fieldSetFlags()[0] = true;  </code></pre><p>  }<br>  if (isValidValue(fields()[1], other.from)) {  </p>
+<pre><code>this.from = data().deepCopy(fields()[1].schema(), other.from);  
+fieldSetFlags()[1] = true;  </code></pre><p>  }<br>  if (isValidValue(fields()[2], other.body)) {  </p>
+<pre><code>this.body = data().deepCopy(fields()[2].schema(), other.body);  
+fieldSetFlags()[2] = true;  </code></pre><p>  }<br>}  </p>
+<p>/** Gets the value of the ‘to’ field */<br>public java.lang.CharSequence getTo() {<br>  return to;<br>}  </p>
+<p>/** Sets the value of the ‘to’ field */<br>public Message.Builder setTo(java.lang.CharSequence value) {<br>  validate(fields()[0], value);<br>  this.to = value;<br>  fieldSetFlags()[0] = true;<br>  return this;<br>}  </p>
+<p>/** Checks whether the ‘to’ field has been set */<br>public boolean hasTo() {<br>  return fieldSetFlags()[0];<br>}  </p>
+<p>/** Clears the value of the ‘to’ field */<br>public Message.Builder clearTo() {<br>  to = null;<br>  fieldSetFlags()[0] = false;<br>  return this;<br>}  </p>
+<p>/** Gets the value of the ‘from’ field */<br>public java.lang.CharSequence getFrom() {<br>  return from;<br>}  </p>
+<p>/** Sets the value of the ‘from’ field */<br>public Message.Builder setFrom(java.lang.CharSequence value) {<br>  validate(fields()[1], value);<br>  this.from = value;<br>  fieldSetFlags()[1] = true;<br>  return this;<br>}  </p>
+<p>/** Checks whether the ‘from’ field has been set */<br>public boolean hasFrom() {<br>  return fieldSetFlags()[1];<br>}  </p>
+<p>/** Clears the value of the ‘from’ field */<br>public Message.Builder clearFrom() {<br>  from = null;<br>  fieldSetFlags()[1] = false;<br>  return this;<br>}  </p>
+<p>/** Gets the value of the ‘body’ field */<br>public java.lang.CharSequence getBody() {<br>  return body;<br>}  </p>
+<p>/** Sets the value of the ‘body’ field */<br>public Message.Builder setBody(java.lang.CharSequence value) {<br>  validate(fields()[2], value);<br>  this.body = value;<br>  fieldSetFlags()[2] = true;<br>  return this;<br>}  </p>
+<p>/** Checks whether the ‘body’ field has been set */<br>public boolean hasBody() {<br>  return fieldSetFlags()[2];<br>}  </p>
+<p>/** Clears the value of the ‘body’ field */<br>public Message.Builder clearBody() {<br>  body = null;<br>  fieldSetFlags()[2] = false;<br>  return this;<br>}  </p>
+<p>@Override<br>public Message build() {<br>  try {  </p>
+<pre><code>Message record = new Message();  
+record.to = fieldSetFlags()[0] ? this.to : (java.lang.CharSequence) defaultValue(fields()[0]);  
+record.from = fieldSetFlags()[1] ? this.from : (java.lang.CharSequence) defaultValue(fields()[1]);  
+record.body = fieldSetFlags()[2] ? this.body : (java.lang.CharSequence) defaultValue(fields()[2]);  
+return record;  </code></pre><p>  } catch (Exception e) {  </p>
+<pre><code>throw new org.apache.avro.AvroRuntimeException(e);  </code></pre><p>  }<br>}  
+}<br>}  </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>2.3.3 AvroServer类</p>
+<p>Java代码  收藏代码<br>package examples.avro.rpc;  </p>
+<p>import org.apache.avro.ipc.NettyServer;<br>import org.apache.avro.ipc.Server;<br>import org.apache.avro.ipc.specific.SpecificResponder;<br>import org.apache.avro.util.Utf8;  </p>
+<p>import java.io.IOException;<br>import java.net.InetSocketAddress;  </p>
+<p>//Server端的实现Mai服务<br>class MailImpl implements Mail {<br>    public Utf8 send(Message message) {<br>        System.out.println(“Message Received：” + message);<br>        return new Utf8(“Received your message： “ + message.getFrom().toString()<br>                + “ with body “ + message.getBody().toString());<br>    }<br>}  </p>
+<p>public class AvroServer {  </p>
+<pre><code>private static Server server;  
+
+public static void main(String[] args) throws Exception {  
+
+    System.out.println(&quot;Starting server&quot;);  
+    startServer();  
+    Thread.sleep(1000);  
+    System.out.println(&quot;Server started&quot;);  
+    Thread.sleep(60 * 1000);  
+    server.close();  
+}  
+
+private static void startServer() throws IOException {  
+    server = new NettyServer(new SpecificResponder(Mail.class, new MailImpl()), new InetSocketAddress(65111));  
+}  </code></pre><p>}  </p>
+<p>2.3.3 AvroClient类<br>Java代码  收藏代码<br>package examples.avro.rpc;  </p>
+<p>import org.apache.avro.ipc.NettyTransceiver;<br>import org.apache.avro.ipc.specific.SpecificRequestor;<br>import org.apache.avro.util.Utf8;  </p>
+<p>import java.net.InetSocketAddress;  </p>
+<p>public class AvroClient {<br>    public static void main(String[] args) throws Exception {<br>        NettyTransceiver client = new NettyTransceiver(new InetSocketAddress(65111));<br>        ///获取Mail接口的proxy实现<br>        Mail proxy = SpecificRequestor.getClient(Mail.class, client);<br>        System.out.println(“Client of Mail Proxy is built”);  </p>
+<pre><code>    // fill in the Message record and send it  
+    args = new String[]{&quot;to:Tom&quot;, &quot;from:Jack&quot;, &quot;body:How are you&quot;};  
+    Message message = new Message();  
+    message.setTo(new Utf8(args[0]));  
+    message.setFrom(new Utf8(args[1]));  
+    message.setBody(new Utf8(args[2]));  
+    System.out.println(&quot;RPC call with message:  &quot; + message.toString());  
+
+    ///底层给服务器发送send方法调用  
+    System.out.println(&quot;Result: &quot; + proxy.send(message));  
+
+    // cleanup  
+    client.close();  
+}  </code></pre><p>}  </p>
+<p>本文支持对Avro RPC的粗浅尝试，Avro Client端用的同步通信方式</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/AVRO/" data-id="cjwa2g0lh000ttwvbr6m40myw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/30/Base64显示/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/30/allocate memory错误，线程数不够/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/30/获取资源路径方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/编程基础/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/线程数用完/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/百度配置管理/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/查询pid/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

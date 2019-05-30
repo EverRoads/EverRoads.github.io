@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SDP协议定义 协议定义SDP规范了回话描述的格式，一般结合会话协议共同工作。 常见的会话传送协议包括:SAP(Session Announcement Protocol 会话公告协议),SIP,RTSP,HTTP,和使用MIME的E-Mail。 （PS：对SAP只能包含一个会话描述,其它会话协议的SDP可包含多个会话描述） SDP包含信息 会话的名称和目的 会话存活时间 包含在会话中的媒体信息，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/GB28181-SDP/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="SDP协议定义 协议定义SDP规范了回话描述的格式，一般结合会话协议共同工作。 常见的会话传送协议包括:SAP(Session Announcement Protocol 会话公告协议),SIP,RTSP,HTTP,和使用MIME的E-Mail。 （PS：对SAP只能包含一个会话描述,其它会话协议的SDP可包含多个会话描述） SDP包含信息 会话的名称和目的 会话存活时间 包含在会话中的媒体信息，">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-29T16:16:14.600Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="SDP协议定义 协议定义SDP规范了回话描述的格式，一般结合会话协议共同工作。 常见的会话传送协议包括:SAP(Session Announcement Protocol 会话公告协议),SIP,RTSP,HTTP,和使用MIME的E-Mail。 （PS：对SAP只能包含一个会话描述,其它会话协议的SDP可包含多个会话描述） SDP包含信息 会话的名称和目的 会话存活时间 包含在会话中的媒体信息，">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-GB28181-SDP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/GB28181-SDP/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.958Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="!<https://www.cnblogs.com/yoyotl/p/5649648.html>">SDP协议定义</a></p>
+<h3 id="协议定义"><a href="#协议定义" class="headerlink" title="协议定义"></a>协议定义</h3><p>SDP规范了回话描述的格式，一般结合会话协议共同工作。</p>
+<p>常见的会话传送协议包括:SAP(Session Announcement Protocol 会话公告协议),SIP,RTSP,HTTP,和使用MIME的E-Mail。</p>
+<p>（PS：对SAP只能包含一个会话描述,其它会话协议的SDP可包含多个会话描述）</p>
+<h3 id="SDP包含信息"><a href="#SDP包含信息" class="headerlink" title="SDP包含信息"></a>SDP包含信息</h3><ol>
+<li>会话的名称和目的</li>
+<li>会话存活时间</li>
+<li>包含在会话中的媒体信息，包括：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 媒体类型（video, audio, etc）</span><br><span class="line">2 传输协议（RTP/UDP/IP, H.320, etc）</span><br><span class="line">3 媒体格式（H.264 video, MPEG video, etc）</span><br><span class="line">4 多播或远端（单播）地址和端口</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>为接收媒体而需的信息（地址，端口，编码格式等）</li>
+<li>本端的带宽信息</li>
+<li>可信赖的接洽信息（Contact information）</li>
+</ol>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ol>
+<li>v=0</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：协议的版本信息</span><br><span class="line">2 格式：v=&lt;版本&gt; 目前只有版本0</span><br><span class="line">3 选择：必选</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>o=- 1466130518 1466130518 IN IP4 192.168.8.76</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：owner/creator和session信息</span><br><span class="line">2 格式：o=&lt;用户名&gt; &lt;会话id&gt; &lt;版本&gt; &lt;网络类型&gt; &lt;地址类型&gt; &lt;地址&gt;</span><br><span class="line">3 选择：必选</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>s=MRD=MRE MRC-V=1.0.0</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：会话名称</span><br><span class="line">2 格式：s=&lt;名称&gt;</span><br><span class="line">3 选择：必选</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>c=IN IP4 192.168.8.76</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：连接信息</span><br><span class="line">2 格式：c=&lt;网络类型&gt; &lt;地址类型&gt; &lt;地址&gt;</span><br><span class="line">3 选择：可选</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>b=AS:1920</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：本端带宽信息</span><br><span class="line">2 格式：b=&lt;类型&gt;:&lt;带宽&gt;</span><br><span class="line">3 选择：可选</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>t=0 0</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：起始时间</span><br><span class="line">2 格式：t=&lt;开始时间&gt; &lt;结束时间&gt;</span><br><span class="line">3 选择：必选</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>a=sendrecv</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：媒体属性</span><br><span class="line">2 格式：a=&lt;属性&gt;</span><br><span class="line">3 选择：可选</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>m=audio 3230 RTP/AVP 118 115 114 113 102 101 103 99 98 97 9 18 15 0 8 104 119</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：媒体信息</span><br><span class="line">2 格式：m=&lt;媒体类型&gt; &lt;媒体端口&gt; &lt;传输协议&gt; &lt;编码信息&gt;</span><br><span class="line">3 选择：必选</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>a=rtpmap:118 SIRENLPR/48000/1</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：媒体属性</span><br><span class="line">2 格式：a=&lt;属性&gt;:&lt;值&gt;</span><br><span class="line">3 选择：可选</span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li>a=fmtp:115 bitrate=48000</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 同9</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li>m=video 3232 RTP/AVP 109 110 96 34 31 106 105 116</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 同8</span><br></pre></td></tr></table></figure>
+
+<ol start="12">
+<li>视频属性信息多一些</li>
+</ol>
+<p>a=label:1<br>a=rtcp-fb:* nack pli<br>a=rtcp-fb:* ccm fir<br>a=rtcp-fb:* ccm tmmbr<br>a=vnd.polycom.forceVideoMode:9<br>a=rtpmap:109 H264/90000<br>a=fmtp:109 profile-level-id=42801f; max-br=20010; sar=13<br>a=rtpmap:110 H264/90000<br>a=fmtp:110 profile-level-id=42801f; packetization-mode=1; max-br=20010; sar=13<br>a=rtpmap:96 H263-1998/90000<br>a=fmtp:96 CIF4=1;CIF=1;QCIF=1;SQCIF=1;CUSTOM=352,240,1;CUSTOM=704,480,1;CUSTOM=1024,768,1;CUSTOM=800,600,1;CUSTOM=640,480,1;T<br>a=rtpmap:34 H263/90000<br>a=fmtp:34 CIF4=1;CIF=1;QCIF=1;SQCIF=1<br>a=rtpmap:31 H261/90000<br>a=fmtp:31 CIF=1;QCIF=1<br>a=rtpmap:106 H264-SVC/90000<br>a=fmtp:106 profile-level-id=56001f; packetization-mode=1; max-br=20010; sar=13<br>a=rtpmap:105 H264-SVC/90000<br>a=fmtp:105 profile-level-id=53e01f; packetization-mode=1; max-br=20010; sar=13<br>a=rtpmap:116 vnd.polycom.lpr/9000<br>a=fmtp:116 V=1;minPP=0;PP=150;RS=52;RP=10;PS=1400</p>
+<ol start="13">
+<li>m=application 3238 UDP/BFCP *</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 同8</span><br></pre></td></tr></table></figure>
+
+<p>a=setup:actpass<br>a=connection:new<br>a=floorctrl:c-s</p>
+<ol start="14">
+<li>m=application 3236 RTP/AVP 100</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 同8</span><br></pre></td></tr></table></figure>
+
+<p>a=rtpmap:100 H224/4800</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/GB28181-SDP/" data-id="cjwa2g0kh0005twvbjb2nq61z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/30/gcc安装相关/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/30/GB28181-RTP/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/30/获取资源路径方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/编程基础/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/线程数用完/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/百度配置管理/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/查询pid/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

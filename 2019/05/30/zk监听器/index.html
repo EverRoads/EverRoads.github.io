@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="package com.sailing.Service; import com.sailing.common.Tools;import lombok.extern.slf4j.Slf4j;import org.apache.curator.RetryPolicy;import org.apache.curator.framework.CuratorFramework;import org.apac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/zk监听器/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="package com.sailing.Service; import com.sailing.common.Tools;import lombok.extern.slf4j.Slf4j;import org.apache.curator.RetryPolicy;import org.apache.curator.framework.CuratorFramework;import org.apac">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-29T16:16:17.664Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="package com.sailing.Service; import com.sailing.common.Tools;import lombok.extern.slf4j.Slf4j;import org.apache.curator.RetryPolicy;import org.apache.curator.framework.CuratorFramework;import org.apac">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-zk监听器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/zk监听器/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.975Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>package com.sailing.Service;</p>
+<p>import com.sailing.common.Tools;<br>import lombok.extern.slf4j.Slf4j;<br>import org.apache.curator.RetryPolicy;<br>import org.apache.curator.framework.CuratorFramework;<br>import org.apache.curator.framework.CuratorFrameworkFactory;<br>import org.apache.curator.framework.recipes.cache.ChildData;<br>import org.apache.curator.framework.recipes.cache.TreeCache;<br>import org.apache.curator.framework.recipes.cache.TreeCacheEvent;<br>import org.apache.curator.framework.recipes.cache.TreeCacheListener;<br>import org.apache.curator.retry.ExponentialBackoffRetry;<br>import org.apache.zookeeper.CreateMode;<br>import org.apache.zookeeper.ZooKeeper;<br>import org.apache.zookeeper.data.Stat;</p>
+<p>import java.util.concurrent.ExecutorService;<br>import java.util.concurrent.Executors;</p>
+<p>@Slf4j<br>public class ZookeeperSync  {</p>
+<pre><code>private static ZooKeeper zooKeeper;
+
+public static void startWatcher() throws Exception{
+    //zooKeeper = new ZooKeeper(Tools.sysProperties.getZookeeper_connect_path(),5000,new ZookeeperSync());</code></pre><p>//        String connectStr = “172.20.54.121:2181,172.20.54.122:2181,172.20.54.123:2181”;<br>        RetryPolicy policy = new ExponentialBackoffRetry(1000,3);<br>        //创建连接<br>        CuratorFramework client = CuratorFrameworkFactory.builder()<br>                .connectString(Tools.sysProperties.getZookeeper_connect_path())<br>                .sessionTimeoutMs(5000)<br>                .retryPolicy(policy).build();<br>        //启动连接<br>        client.start();</p>
+<pre><code>    setListenterThreeThree(client,&quot;/test&quot;);
+    //创建节点
+    client.create().creatingParentsIfNeeded()
+            .withMode(CreateMode.PERSISTENT)
+            .forPath(&quot;/test&quot;,&quot;test&quot;.getBytes());
+
+    client.create().creatingParentsIfNeeded()
+            .withMode(CreateMode.PERSISTENT)
+            .forPath(&quot;/test/c1&quot;,&quot;test&quot;.getBytes());
+    //获取数据
+    Stat stat = new Stat();
+    client.getData().storingStatIn(stat).forPath(&quot;/test&quot;);
+
+    //设置数据
+    int version = client.setData().withVersion(stat.getVersion()).forPath(&quot;/test&quot;, &quot;12&quot;.getBytes()).getVersion();
+
+    //删除数据
+    client.delete().deletingChildrenIfNeeded()
+            .withVersion(version)
+            .forPath(&quot;/test&quot;);
+    Thread.sleep(Integer.MAX_VALUE);
+}
+
+
+
+//3.Tree Cache
+// 监控 指定节点和节点下的所有的节点的变化--无限监听  可以进行本节点的删除(不在创建)
+private static void setListenterThreeThree(CuratorFramework client,String path) throws Exception{
+    ExecutorService pool = Executors.newCachedThreadPool();
+    //设置节点的cache
+    TreeCache treeCache = new TreeCache(client, path);
+    //设置监听器和处理过程
+    treeCache.getListenable().addListener(new TreeCacheListener() {
+        @Override
+        public void childEvent(CuratorFramework client, TreeCacheEvent event) throws Exception {
+            ChildData data = event.getData();
+            if(data !=null){
+                switch (event.getType()) {
+                    case NODE_ADDED:
+                        System.out.println(&quot;NODE_ADDED : &quot;+ data.getPath() +&quot;  数据:&quot;+ new String(data.getData()));
+                        break;
+                    case NODE_REMOVED:
+                        System.out.println(&quot;NODE_REMOVED : &quot;+ data.getPath() +&quot;  数据:&quot;+ new String(data.getData()));
+                        break;
+                    case NODE_UPDATED:
+                        System.out.println(&quot;NODE_UPDATED : &quot;+ data.getPath() +&quot;  数据:&quot;+ new String(data.getData()));
+                        break;
+
+                    default:
+                        break;
+                }
+            }else{
+                System.out.println( &quot;data is null : &quot;+ event.getType());
+            }
+        }
+    });
+    //开始监听
+    treeCache.start();
+
+}</code></pre><p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/zk监听器/" data-id="cjwa2g0kv000htwvbvq9m8uhu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/30/抓包相关/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/30/yum源/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/30/获取资源路径方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/编程基础/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/线程数用完/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/百度配置管理/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/查询pid/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

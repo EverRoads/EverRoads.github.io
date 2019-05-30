@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-oracle存在更新，不存在新增" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/oracle存在更新，不存在新增/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.969Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MERGE INTO PRODUCT1 a<br>USING (SELECT  ‘5’ AS id FROM dual ) b<br>ON (a.id = b.id)<br>WHEN MATCHED THEN<br>UPDATE SET PRODUCT_NAME=’������’<br>WHEN NOT MATCHED THEN<br>INSERT (ID,PRODUCT_NAME,PRODUCT_DESC) VALUES (‘5’,’����’,’����ҪǮ’);</p>
+<p><a href="https://blog.csdn.net/naruto0025/article/details/80004891" target="_blank" rel="noopener">https://blog.csdn.net/naruto0025/article/details/80004891</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/oracle存在更新，不存在新增/" data-id="cjwa2g0kt000ftwvbgc9naw1l" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven插件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/maven插件/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.968Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <build>
+        <finalname>SxInnovate</finalname><!--打包出来的文件名-->
+        <plugins>
+            <plugin><!--编译插件-->
+                <groupid>org.apache.maven.plugins</groupid>
+                <artifactid>maven-compiler-plugin</artifactid>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerarguments>
+                        <verbose>
+                        <bootclasspath>${java.home}/lib/rt.jar</bootclasspath>
+                    </verbose></compilerarguments>
+                </configuration>
+            </plugin>
+            <plugin><!--打包依赖的jar包-->
+                <groupid>org.apache.maven.plugins</groupid>
+                <artifactid>maven-dependency-plugin</artifactid>
+                <configuration>
+                    <outputdirectory>${project.build.directory}/lib</outputdirectory>
+                    <excludetransitive>false</excludetransitive> <!-- 表示是否不包含间接依赖的包 -->
+                    <stripversion>false</stripversion> <!-- 去除版本信息 -->
+                </configuration>
+
+<pre><code>    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;id&gt;copy-dependencies&lt;/id&gt;
+            &lt;phase&gt;package&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;copy-dependencies&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+                &lt;!-- 拷贝项目依赖包到lib/目录下 --&gt;
+                &lt;outputDirectory&gt;${project.build.directory}/lib&lt;/outputDirectory&gt;
+                &lt;excludeTransitive&gt;false&lt;/excludeTransitive&gt;
+                &lt;stripVersion&gt;false&lt;/stripVersion&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+&lt;!-- 项目资源插件 --&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+    &lt;version&gt;2.6&lt;/version&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;id&gt;copy-resources&lt;/id&gt;
+            &lt;phase&gt;package&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;copy-resources&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+                &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+                &lt;!-- 拷贝项目src/main/resources/下，除.bat和.sh以外的所有文件到conf/目录下 --&gt;
+                &lt;outputDirectory&gt;${project.build.directory}/conf&lt;/outputDirectory&gt;
+                &lt;resources&gt;
+                    &lt;resource&gt;
+                        &lt;directory&gt;src/main/resources/&lt;/directory&gt;
+                        &lt;filtering&gt;true&lt;/filtering&gt;
+                        &lt;excludes&gt;
+                            &lt;exclude&gt;*.bat&lt;/exclude&gt;
+                            &lt;exclude&gt;*.sh&lt;/exclude&gt;
+                        &lt;/excludes&gt;
+                    &lt;/resource&gt;
+                &lt;/resources&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+        &lt;execution&gt;
+            &lt;id&gt;copy-command&lt;/id&gt;
+            &lt;phase&gt;package&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;copy-resources&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+                &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+                &lt;!-- 只拷贝项目src/main/resources/目录下的.bat文件到输出目录下 --&gt;
+                &lt;outputDirectory&gt;${project.build.directory}/bin&lt;/outputDirectory&gt;
+                &lt;resources&gt;
+                    &lt;resource&gt;
+                        &lt;directory&gt;src/main/resources/&lt;/directory&gt;
+                        &lt;filtering&gt;true&lt;/filtering&gt;
+                        &lt;includes&gt;
+                            &lt;include&gt;*.bat&lt;/include&gt;
+                            &lt;include&gt;*.sh&lt;/include&gt;
+                        &lt;/includes&gt;
+                    &lt;/resource&gt;
+                &lt;/resources&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+
+&lt;!-- 打成jar包插件 --&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;
+    &lt;version&gt;2.4&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;archive&gt;
+            &lt;!--
+            生成的jar中，不要包含pom.xml和pom.properties这两个文件
+        --&gt;
+            &lt;addMavenDescriptor&gt;false&lt;/addMavenDescriptor&gt;
+            &lt;!-- 生成MANIFEST.MF的设置 --&gt;
+            &lt;manifest&gt;
+                &lt;!-- 为依赖包添加路径, 这些路径会写在MANIFEST文件的Class-Path下 --&gt;
+                &lt;addClasspath&gt;true&lt;/addClasspath&gt;
+                &lt;classpathPrefix&gt;lib/&lt;/classpathPrefix&gt;
+                &lt;!-- jar启动入口类--&gt;
+                &lt;mainClass&gt;com.boco.Application&lt;/mainClass&gt;
+            &lt;/manifest&gt;
+            &lt;manifestEntries&gt;
+                &lt;!-- 在Class-Path下添加配置文件的路径 --&gt;
+                &lt;Class-Path&gt;conf/&lt;/Class-Path&gt;
+            &lt;/manifestEntries&gt;
+        &lt;/archive&gt;
+        &lt;outputDirectory&gt;${project.build.directory}/&lt;/outputDirectory&gt;
+        &lt;includes&gt;
+            &lt;!-- 打jar包时，只打包class文件 --&gt;
+            &lt;include&gt;**/*.class&lt;/include&gt;
+        &lt;/includes&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre><!--打包插件，这个功能很强大，具体可以网上搜一下-->
+<pre><code>        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;
+            &lt;version&gt;2.4&lt;/version&gt;
+            &lt;!-- The configuration of the plugin --&gt;
+            &lt;configuration&gt;
+                &lt;!-- Specifies the configuration file of the assembly plugin --&gt;
+                &lt;descriptors&gt;
+                    &lt;descriptor&gt;package.xml&lt;/descriptor&gt;
+                &lt;/descriptors&gt;
+               &lt;!--&lt;descriptorRefs&gt;
+                    &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;依赖包和源码打成一个jar文件
+                &lt;/descriptorRefs&gt;--&gt;
+            &lt;/configuration&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;id&gt;make-assembly&lt;/id&gt;
+                    &lt;phase&gt;package&lt;/phase&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;single&lt;/goal&gt;
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</code></pre><p>上面的package.xml文件内容如下：<br><assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3 
+http://maven.apache.org/xsd/assembly-1.1.3.xsd"><br>    <id>distribution</id><br>    <formats><br>        <format>zip</format><br>    </formats></assembly></p>
+<pre><code>&lt;fileSets&gt;
+    &lt;fileSet&gt;
+        &lt;directory&gt;${project.basedir}\src\main\resources&lt;/directory&gt;
+        &lt;outputDirectory&gt;\conf&lt;/outputDirectory&gt;
+      &lt;!--  &lt;includes&gt;
+            &lt;include&gt;${project.basedir}\lib&lt;/include&gt;
+        &lt;/includes&gt;--&gt;
+
+        &lt;!--&lt;excludes&gt;
+            &lt;exclude&gt;some/path1&lt;/exclude&gt;
+        &lt;/excludes&gt;--&gt;
+    &lt;/fileSet&gt;
+
+    &lt;fileSet&gt;
+        &lt;directory&gt;${project.basedir}\src\bin&lt;/directory&gt;
+        &lt;outputDirectory&gt;\bin&lt;/outputDirectory&gt;
+    &lt;/fileSet&gt;
+
+    &lt;fileSet&gt;
+        &lt;directory&gt;${project.basedir}\lib&lt;/directory&gt;
+        &lt;outputDirectory&gt;\lib&lt;/outputDirectory&gt;
+    &lt;/fileSet&gt;
+&lt;/fileSets&gt;
+
+&lt;dependencySets&gt;
+    &lt;dependencySet&gt;
+        &lt;useProjectArtifact&gt;true&lt;/useProjectArtifact&gt;
+        &lt;outputDirectory&gt;lib&lt;/outputDirectory&gt;
+        &lt;!-- 将scope为runtime的依赖包打包到lib目录下。 --&gt;
+        &lt;scope&gt;runtime&lt;/scope&gt;
+    &lt;/dependencySet&gt;
+&lt;/dependencySets&gt;</code></pre>
+
+<p>另外，两个小知识点：<br>1.将本地jar安装到本地仓库，解决像oracle连接驱动引用不了的问题。<br>mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.2.0 -Dpackaging=jar<br>-Dfile=E:\oracle\ojdbc14-10.2.0.2.0.jar<br>2.项目依赖本地路径jar包<br>首先我在项目根目录中创建一个lib文件夹，将jar包拷贝到lib文件夹下</p>
+<p>然后我们在maven的pom.xml中配置</p>
+<p><groupid>org.aaa.bbb</groupid><br><artifactid>kkk</artifactid><br><version>1.0</version><br><scope>system</scope><br><systempath>${project.basedir}/lib/aaa.jar</systempath><br>这里的groupId和artifactId以及version都是可以随便填写的 ，scope必须填写为system，而systemPath我们现在我们jar包的地址就可以了</p>
+</plugin></plugins></build>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/maven插件/" data-id="cjwa2g0l8000rtwvbtb7uoumv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux下操作串口" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/Linux下操作串口/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.966Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.使用ls -l ttyS<em>命令显示如下<br>crw-rw—-. 1 root dialout 4, 64  5月 17 02:24 /dev/ttyS0<br>crw-rw—-. 1 root dialout 4, 65  5月 17 02:24 /dev/ttyS1<br>crw-rw—-. 1 root dialout 4, 66  5月 17 02:24 /dev/ttyS2<br>crw-rw—-. 1 root dialout 4, 67  5月 17 02:24 /dev/ttyS3<br>但你不知到哪个是真实的串口，虽然一般都是ttyS0，但也不敢妄然确定。<br>2.使用cat /proc/tty/driver/serial<br>serinfo:1.0 driver revision:<br>0: uart:16550A port:000003F8 irq:4 tx:0 rx:0<br>1: uart:unknown port:000002F8 irq:3<br>2: uart:unknown port:000003E8 irq:4<br>3: uart:unknown port:000002E8 irq:3<br>我们发现串口0的uart值时16550A，tx值为0，rx值也为0，因此我们断定本机只有一个串口，是串口0，即ttyS0<br>3.也可以用dmesg | grep ttyS</em>，但这个不是很好用，当然你可以自己使用正则法则取找到。<br>注意：还应查看是否有USB转串口，这个就很简单了：ls ttyUSB*，全部搞定。</p>
+<p>安装python</p>
+<p>#apt-get install python<br>安装pip</p>
+<p>#apt-get install python-pip<br>安装SerialTool</p>
+<p>#pip install SerialTool<br>使用方法：<br>SerailTool com baudrate databits parity stopbits types types<br>其中：<br>    com：实际的串口设备，例如/dev/ttyUSB0<br>    baudrate：波特率<br>    databits：数据位<br>    parity：奇偶校验<br>    stopbits：停止位<br>    types：串口发送的数据类型，string或者hex，可选項，默认为string<br>    types：串口接收的数据类型，string活在hex，可选項，默认为string<br>例如：<br>115200 8N1的命令为：<br>字符串形式：SerialTool /dev/ttyUSB0 115200 8 N 1<br>16进制形式：SerialTool /dev/ttyUSB0 115200 8 N 1 hex hex<br>16进制发送，字符串接收：SerialTool /dev/ttyUSB0 115200 8 N 1 hex string<br>字符串发送，16进制接收：SerialTool /dev/ttyUSB0 115200 8 N 1 string hex<br>程序运行效果：<br>$ SerialTool /dev/ttyUSB0 115200 8 N 1<br>A small debug tool for serial port programming.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Port Info:/dev/ttyUSB0</span><br><span class="line"><span class="meta">&gt;</span>&gt;:send</span><br><span class="line">&lt;&lt;:receive</span><br><span class="line">====</span><br><span class="line"><span class="meta">&gt;</span>&gt;AT</span><br><span class="line">&lt;&lt;ok</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/Linux下操作串口/" data-id="cjwa2g0kl0009twvbd9j38t30" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-LinuxSE" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/LinuxSE/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.965Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、如何禁止SELinux。</p>
+<h1 id="vi-etc-selinux-config"><a href="#vi-etc-selinux-config" class="headerlink" title="vi /etc/selinux/config"></a>vi /etc/selinux/config</h1><p>修改为：SELINUX=disabled</p>
+<p>如果不想重启系统的话，在终端中输入：setenforce 0。</p>
+<p>重新启动vsftpd进程，问题解决。</p>
+<p>不如直接删除这个恼人的SELinux</p>
+<p>yum remove selinux* -y</p>
+<p>这个世界终于清净了…</p>
+<p>可能性二：</p>
+<p>匿名用户的目录（/var/ftp/pub）没有写权限，需要将其设置为具有写权限。</p>
+<p>首先转到/var/ftp</p>
+<p>然后在终端中输入：chmod 777 pub。</p>
+<p>也许就是这个问题绊倒了你，:-)</p>
+<p>yum remove selinux* -y </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/LinuxSE/" data-id="cjwa2g0kj0007twvb1awgggt7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java抓包+分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/java抓包+分析/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.963Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="抓包"><a href="#抓包" class="headerlink" title="抓包"></a>抓包</h3><h4 id="maven依赖"><a href="#maven依赖" class="headerlink" title="maven依赖"></a>maven依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.pcap4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pcap4j-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.pcap4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pcap4j-packetfactory-static<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="实时包API接口"><a href="#实时包API接口" class="headerlink" title="实时包API接口"></a>实时包API接口</h4><h5 id="选择网卡"><a href="#选择网卡" class="headerlink" title="选择网卡"></a>选择网卡</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> PcapNetworkInterface <span class="title">getNetworkDevice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    PcapNetworkInterface device = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        device = <span class="keyword">new</span> NifSelector().selectNetworkInterface();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> device;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="开启实时抓包"><a href="#开启实时抓包" class="headerlink" title="开启实时抓包"></a>开启实时抓包</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Open the device and get a handle</span></span><br><span class="line"><span class="keyword">int</span> snapshotLength = <span class="number">65536</span>; <span class="comment">// in bytes</span></span><br><span class="line"><span class="keyword">int</span> readTimeout = <span class="number">50</span>; <span class="comment">// in milliseconds</span></span><br><span class="line">handle = device.openLive(snapshotLength, PromiscuousMode.PROMISCUOUS, readTimeout);</span><br></pre></td></tr></table></figure>
+
+<h5 id="设置过滤条件"><a href="#设置过滤条件" class="headerlink" title="设置过滤条件"></a>设置过滤条件</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String filter = <span class="string">"sip"</span>;<span class="comment">//"tcp port 8051";</span></span><br><span class="line">handle.setFilter(filter, BpfCompileMode.OPTIMIZE);</span><br></pre></td></tr></table></figure>
+
+<h5 id="设置存放目录"><a href="#设置存放目录" class="headerlink" title="设置存放目录"></a>设置存放目录</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> PcapDumper dumper = handle.dumpOpen(<span class="string">"dump.pcap"</span>);</span><br><span class="line">dumper.dump(packet, handle.getTimestamp());</span><br></pre></td></tr></table></figure>
+
+<h5 id="设施监听"><a href="#设施监听" class="headerlink" title="设施监听"></a>设施监听</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a listener that defines what to do with the received packets</span></span><br><span class="line">PacketListener listener = <span class="keyword">new</span> PacketListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gotPacket</span><span class="params">(Packet packet)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Override the default gotPacket() function and process packet</span></span><br><span class="line">        System.out.println(handle.getTimestamp());</span><br><span class="line">        System.out.println(ByteArrays.toHexString(packet, <span class="string">" "</span>));</span><br><span class="line">        System.out.println(packet);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="开始监听"><a href="#开始监听" class="headerlink" title="开始监听"></a>开始监听</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Tell the handle to loop using the listener we created</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">int</span> maxPackets = <span class="number">50000</span>;</span><br><span class="line">    handle.loop(maxPackets, listener);</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="数据包状态信息展示"><a href="#数据包状态信息展示" class="headerlink" title="数据包状态信息展示"></a>数据包状态信息展示</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">stats = handle.getStats();</span><br><span class="line">System.out.println(<span class="string">"Packets received: "</span> + stats.getNumPacketsReceived());</span><br><span class="line">System.out.println(<span class="string">"Packets dropped: "</span> + stats.getNumPacketsDropped());</span><br><span class="line">System.out.println(<span class="string">"Packets dropped by interface: "</span> + stats.getNumPacketsDroppedByIf());</span><br><span class="line"><span class="keyword">if</span> (Platform.isWindows()) &#123;</span><br><span class="line">    System.out.println(<span class="string">"bs_capt: "</span> + ps.getNumPacketsCaptured());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="历史数据包API接口"><a href="#历史数据包API接口" class="headerlink" title="历史数据包API接口"></a>历史数据包API接口</h4><h5 id="获取到已经抓到的pcap包"><a href="#获取到已经抓到的pcap包" class="headerlink" title="获取到已经抓到的pcap包"></a>获取到已经抓到的pcap包</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PcapHandle handle;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    handle = Pcaps.openOffline(PCAP_FILE, TimestampPrecision.NANO);</span><br><span class="line">&#125; <span class="keyword">catch</span> (PcapNativeException e) &#123;</span><br><span class="line">    handle = Pcaps.openOffline(PCAP_FILE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="读取到数据包"><a href="#读取到数据包" class="headerlink" title="读取到数据包"></a>读取到数据包</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; COUNT; i++) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Packet packet = handle.getNextPacketEx();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (TimeoutException e) &#123;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (EOFException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">"EOF"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">        handle.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="转换数据包"><a href="#转换数据包" class="headerlink" title="转换数据包"></a>转换数据包</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IpV4Packet packets = packet.get(IpV4Packet.class);</span><br><span class="line">UdpPacket packets = packet.get(UdpPacket.class);</span><br></pre></td></tr></table></figure>
+
+<h4 id="发送数据包（及其不重要）"><a href="#发送数据包（及其不重要）" class="headerlink" title="发送数据包（及其不重要）"></a>发送数据包（及其不重要）</h4><h5 id="组建数据"><a href="#组建数据" class="headerlink" title="组建数据"></a>组建数据</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] echoData = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">4000</span> - <span class="number">28</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; echoData.length; i++) &#123;</span><br><span class="line">  echoData[i] = (<span class="keyword">byte</span>) i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="包构建器"><a href="#包构建器" class="headerlink" title="包构建器"></a>包构建器</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IcmpV4EchoPacket.Builder echoBuilder = <span class="keyword">new</span> IcmpV4EchoPacket.Builder();</span><br><span class="line">echoBuilder</span><br><span class="line">    .identifier((<span class="keyword">short</span>) <span class="number">1</span>)</span><br><span class="line">    .payloadBuilder(<span class="keyword">new</span> UnknownPacket.Builder().rawData(echoData));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IcmpV4CommonPacket.Builder icmpV4CommonBuilder = <span class="keyword">new</span> IcmpV4CommonPacket.Builder();</span><br><span class="line">icmpV4CommonBuilder</span><br><span class="line">    .type(IcmpV4Type.ECHO)</span><br><span class="line">    .code(IcmpV4Code.NO_CODE)</span><br><span class="line">    .payloadBuilder(echoBuilder)</span><br><span class="line">    .correctChecksumAtBuild(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">IpV4Packet.Builder ipV4Builder = <span class="keyword">new</span> IpV4Packet.Builder();</span><br><span class="line">ipV4Builder</span><br><span class="line">      .version(IpVersion.IPV4)</span><br><span class="line">    .tos(IpV4Rfc791Tos.newInstance((<span class="keyword">byte</span>) <span class="number">0</span>))</span><br><span class="line">    .ttl((<span class="keyword">byte</span>) <span class="number">100</span>)</span><br><span class="line">    .protocol(IpNumber.ICMPV4)</span><br><span class="line">    .srcAddr((Inet4Address) InetAddress.getByName(strSrcIpAddress))</span><br><span class="line">    .dstAddr((Inet4Address) InetAddress.getByName(strDstIpAddress))</span><br><span class="line">    .payloadBuilder(icmpV4CommonBuilder)</span><br><span class="line">    .correctChecksumAtBuild(<span class="keyword">true</span>)</span><br><span class="line">    .correctLengthAtBuild(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">EthernetPacket.Builder etherBuilder = <span class="keyword">new</span> EthernetPacket.Builder();</span><br><span class="line">etherBuilder</span><br><span class="line">    .dstAddr(MacAddress.getByName(strDstMacAddress, <span class="string">":"</span>))</span><br><span class="line">    .srcAddr(srcMacAddr)</span><br><span class="line">    .type(EtherType.IPV4)</span><br><span class="line">    .paddingAtBuild(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="发送"><a href="#发送" class="headerlink" title="发送"></a>发送</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; COUNT; i++) &#123; <span class="comment">//3</span></span><br><span class="line">    echoBuilder.sequenceNumber((<span class="keyword">short</span>) i);</span><br><span class="line">    ipV4Builder.identification((<span class="keyword">short</span>) i);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">final</span> Packet ipV4Packet : IpV4Helper.fragment(ipV4Builder.build(), MTU)) &#123;<span class="comment">//1403</span></span><br><span class="line">        etherBuilder.payloadBuilder(</span><br><span class="line">            <span class="keyword">new</span> AbstractBuilder() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> Packet <span class="title">build</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> ipV4Packet;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        Packet p = etherBuilder.build();</span><br><span class="line">        sendHandle.sendPacket(p);</span><br><span class="line">        Thread.sleep(<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/java抓包+分析/" data-id="cjwa2g0kt000etwvbcx8jloh0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java中系统变量" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/java中系统变量/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.962Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>java的System.getProperty()方法可以获取的值<br>2009年03月13日 13:03:00<br>阅读数：207652</p>
+<p>java.version</p>
+<p>Java 运行时环境版本</p>
+<p>java.vendor</p>
+<p>Java 运行时环境供应商</p>
+<p>java.vendor.url</p>
+<p>Java 供应商的 URL</p>
+<p>java.home</p>
+<p>Java 安装目录</p>
+<p>java.vm.specification.version</p>
+<p>Java 虚拟机规范版本</p>
+<p>java.vm.specification.vendor</p>
+<p>Java 虚拟机规范供应商</p>
+<p>java.vm.specification.name</p>
+<p>Java 虚拟机规范名称</p>
+<p>java.vm.version</p>
+<p>Java 虚拟机实现版本</p>
+<p>java.vm.vendor</p>
+<p>Java 虚拟机实现供应商</p>
+<p>java.vm.name</p>
+<p>Java 虚拟机实现名称</p>
+<p>java.specification.version</p>
+<p>Java 运行时环境规范版本</p>
+<p>java.specification.vendor</p>
+<p>Java 运行时环境规范供应商</p>
+<p>java.specification.name</p>
+<p>Java 运行时环境规范名称</p>
+<p>java.class.version</p>
+<p>Java 类格式版本号</p>
+<p>java.class.path</p>
+<p>Java 类路径</p>
+<p>java.library.path</p>
+<p>加载库时搜索的路径列表</p>
+<p>java.io.tmpdir</p>
+<p>默认的临时文件路径</p>
+<p>java.compiler</p>
+<p>要使用的 JIT 编译器的名称</p>
+<p>java.ext.dirs</p>
+<p>一个或多个扩展目录的路径</p>
+<p>os.name</p>
+<p>操作系统的名称</p>
+<p>os.arch</p>
+<p>操作系统的架构</p>
+<p>os.version</p>
+<p>操作系统的版本</p>
+<p>file.separator</p>
+<p>文件分隔符（在 UNIX 系统中是“/”）</p>
+<p>path.separator</p>
+<p>路径分隔符（在 UNIX 系统中是“:”）</p>
+<p>line.separator</p>
+<p>行分隔符（在 UNIX 系统中是“/n”）</p>
+<p>user.name</p>
+<p>用户的账户名称</p>
+<p>user.home</p>
+<p>用户的主目录</p>
+<p>user.dir</p>
+<p>用户的当前工作目录</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/java中系统变量/" data-id="cjwa2g0kq000btwvb2h8q8jvo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-gcc安装相关" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/gcc安装相关/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.959Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>解决configure: error: C++ compiler cannot create executables问题 (2013-04-21 18:47:46)转载▼<br>标签： it    分类： php<br>啊……天啊，./configure时报错：configure: error: C++ compiler cannot create executables 。哎，今天重装测试服务器上的系统，设置好IP可以远程访问时就回来安装软件，在搭建PHP+Nginx环境时倒出现了问题。</p>
+<p>问题出现在了安装libmcrypt组件包上了，当我./configure时报错：configure: error: C++ compiler cannot create executables 。后来查了一下相关资料后才发现是gcc的组件没有装全，我之前安装gcc时是通知yum方式：</p>
+<p>yum install gcc gcc++<br>呵呵，这样的话还是有组件没有安装完整的。再执行一下这个命令就可以解决问题。</p>
+<p>yum install gcc gcc-c++ gcc-g77</p>
+<p>这下应该没有什么问题了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/gcc安装相关/" data-id="cjwa2g0kr000ctwvbpmv0qr3w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-GB28181-SDP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/GB28181-SDP/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.958Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="!<https://www.cnblogs.com/yoyotl/p/5649648.html>">SDP协议定义</a></p>
+<h3 id="协议定义"><a href="#协议定义" class="headerlink" title="协议定义"></a>协议定义</h3><p>SDP规范了回话描述的格式，一般结合会话协议共同工作。</p>
+<p>常见的会话传送协议包括:SAP(Session Announcement Protocol 会话公告协议),SIP,RTSP,HTTP,和使用MIME的E-Mail。</p>
+<p>（PS：对SAP只能包含一个会话描述,其它会话协议的SDP可包含多个会话描述）</p>
+<h3 id="SDP包含信息"><a href="#SDP包含信息" class="headerlink" title="SDP包含信息"></a>SDP包含信息</h3><ol>
+<li>会话的名称和目的</li>
+<li>会话存活时间</li>
+<li>包含在会话中的媒体信息，包括：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 媒体类型（video, audio, etc）</span><br><span class="line">2 传输协议（RTP/UDP/IP, H.320, etc）</span><br><span class="line">3 媒体格式（H.264 video, MPEG video, etc）</span><br><span class="line">4 多播或远端（单播）地址和端口</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>为接收媒体而需的信息（地址，端口，编码格式等）</li>
+<li>本端的带宽信息</li>
+<li>可信赖的接洽信息（Contact information）</li>
+</ol>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ol>
+<li>v=0</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：协议的版本信息</span><br><span class="line">2 格式：v=&lt;版本&gt; 目前只有版本0</span><br><span class="line">3 选择：必选</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>o=- 1466130518 1466130518 IN IP4 192.168.8.76</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：owner/creator和session信息</span><br><span class="line">2 格式：o=&lt;用户名&gt; &lt;会话id&gt; &lt;版本&gt; &lt;网络类型&gt; &lt;地址类型&gt; &lt;地址&gt;</span><br><span class="line">3 选择：必选</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>s=MRD=MRE MRC-V=1.0.0</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：会话名称</span><br><span class="line">2 格式：s=&lt;名称&gt;</span><br><span class="line">3 选择：必选</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>c=IN IP4 192.168.8.76</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：连接信息</span><br><span class="line">2 格式：c=&lt;网络类型&gt; &lt;地址类型&gt; &lt;地址&gt;</span><br><span class="line">3 选择：可选</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>b=AS:1920</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：本端带宽信息</span><br><span class="line">2 格式：b=&lt;类型&gt;:&lt;带宽&gt;</span><br><span class="line">3 选择：可选</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>t=0 0</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：起始时间</span><br><span class="line">2 格式：t=&lt;开始时间&gt; &lt;结束时间&gt;</span><br><span class="line">3 选择：必选</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>a=sendrecv</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：媒体属性</span><br><span class="line">2 格式：a=&lt;属性&gt;</span><br><span class="line">3 选择：可选</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>m=audio 3230 RTP/AVP 118 115 114 113 102 101 103 99 98 97 9 18 15 0 8 104 119</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：媒体信息</span><br><span class="line">2 格式：m=&lt;媒体类型&gt; &lt;媒体端口&gt; &lt;传输协议&gt; &lt;编码信息&gt;</span><br><span class="line">3 选择：必选</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>a=rtpmap:118 SIRENLPR/48000/1</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 定义：媒体属性</span><br><span class="line">2 格式：a=&lt;属性&gt;:&lt;值&gt;</span><br><span class="line">3 选择：可选</span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li>a=fmtp:115 bitrate=48000</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 同9</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li>m=video 3232 RTP/AVP 109 110 96 34 31 106 105 116</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 同8</span><br></pre></td></tr></table></figure>
+
+<ol start="12">
+<li>视频属性信息多一些</li>
+</ol>
+<p>a=label:1<br>a=rtcp-fb:* nack pli<br>a=rtcp-fb:* ccm fir<br>a=rtcp-fb:* ccm tmmbr<br>a=vnd.polycom.forceVideoMode:9<br>a=rtpmap:109 H264/90000<br>a=fmtp:109 profile-level-id=42801f; max-br=20010; sar=13<br>a=rtpmap:110 H264/90000<br>a=fmtp:110 profile-level-id=42801f; packetization-mode=1; max-br=20010; sar=13<br>a=rtpmap:96 H263-1998/90000<br>a=fmtp:96 CIF4=1;CIF=1;QCIF=1;SQCIF=1;CUSTOM=352,240,1;CUSTOM=704,480,1;CUSTOM=1024,768,1;CUSTOM=800,600,1;CUSTOM=640,480,1;T<br>a=rtpmap:34 H263/90000<br>a=fmtp:34 CIF4=1;CIF=1;QCIF=1;SQCIF=1<br>a=rtpmap:31 H261/90000<br>a=fmtp:31 CIF=1;QCIF=1<br>a=rtpmap:106 H264-SVC/90000<br>a=fmtp:106 profile-level-id=56001f; packetization-mode=1; max-br=20010; sar=13<br>a=rtpmap:105 H264-SVC/90000<br>a=fmtp:105 profile-level-id=53e01f; packetization-mode=1; max-br=20010; sar=13<br>a=rtpmap:116 vnd.polycom.lpr/9000<br>a=fmtp:116 V=1;minPP=0;PP=150;RS=52;RP=10;PS=1400</p>
+<ol start="13">
+<li>m=application 3238 UDP/BFCP *</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 同8</span><br></pre></td></tr></table></figure>
+
+<p>a=setup:actpass<br>a=connection:new<br>a=floorctrl:c-s</p>
+<ol start="14">
+<li>m=application 3236 RTP/AVP 100</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 同8</span><br></pre></td></tr></table></figure>
+
+<p>a=rtpmap:100 H224/4800</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/GB28181-SDP/" data-id="cjwa2g0kh0005twvbjb2nq61z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-GB28181-RTP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/GB28181-RTP/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.955Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="!<https://www.cnblogs.com/yoyotl/p/5650101.html>">RTP协议</a></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>实时传输协议（Real- time Transport Protocol，RTP）是在Internet上处理多媒体数据流的一种网络协议，利用它能够在一对一（unicast，单播）或者一对多 （multicast，多播）的网络环境中实现传流媒体数据的实时传输。</p>
+<h3 id="协议格式"><a href="#协议格式" class="headerlink" title="协议格式"></a>协议格式</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1               2               3              4</span><br><span class="line">1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|V=2|P|X|  CC   |M|     PT      |       sequence number         |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|                           timestamp                           |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|                synchronization source (SSRC)                  |   </span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|                 contributing source (CSRC)                    | </span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></pre></td></tr></table></figure>
+
+<h3 id="字段解析"><a href="#字段解析" class="headerlink" title="字段解析"></a>字段解析</h3><ol>
+<li><p>V：RTP协议的版本号，占2位，当前协议版本号为2。</p>
+</li>
+<li><p>P：填充标志，占1位，如果P=1，则在该报文的尾部填充一个或多个额外的八位组，它们不是有效载荷的一部分。</p>
+</li>
+<li><p>X：扩展标志，占1位，如果X=1，则在RTP报头后跟有一个扩展报头。</p>
+</li>
+<li><p>CC：CSRC计数器，占4位，指示CSRC 标识符的个数。</p>
+</li>
+<li><p>M: 标记，占1位，不同的有效载荷有不同的含义，对于视频，标记一帧的结束；对于音频，标记会话的开始。</p>
+</li>
+<li><p>PT: 有效载荷类型，占7位，用于说明RTP报文中有效载荷的类型，如GSM音频、H264视频等,在流媒体中大部分是用来区分音频流和视频流的，这样便于客户端进行解析。</p>
+</li>
+<li><p>sequence number（序列号）：占16位，用于标识发送者所发送的RTP报文的序列号，每发送一个报文，序列号增1。这个字段当下层的承载协议用UDP的时候，网络状况不好的时候可以用来检查丢包。同时出现网络抖动的情况可以用来对数据进行重新排序。</p>
+</li>
+<li><p>timestamp（时间戳）：占32位，时戳反映了该RTP报文的第一个八位组的采样时刻。接收者使用时戳来计算延迟和延迟抖动，并进行同步控制。</p>
+</li>
+<li><p>SSRC（同步信源）：占32位，用于标识同步信源。</p>
+<p>RTP包流的源，用RTP报头中32位数值的SSRC标识符进行标识，使其不依赖于网络地址。一个同步源的所有包构成了相同计时和序列号空间的一部分，这样接收方就可以把一个同步源的包放在一起，来进行重放。</p>
+<p>举些同步源的例子，像来自同一信号源的包流的发送方，如麦克风、摄影机、RTP混频器就是同步源。一个同步源可能随着时间变化而改变其数据格式，如音频编码。</p>
+<p>SSRC标识符是一个随机选取的值，它在特定的RTP会话中是全局唯一的。</p>
+<p>如果参与者在一个RTP会话中生成了多个流，例如来自多个摄影机，则每个摄影机都必须标识成单独的同步源。<br>   该标识符是随机选择的，参加同一视频会议的两个同步信源不能有相同的SSRC。</p>
+</li>
+<li><p>CSRC（作用信源）：占32位，可以包含0～15个作用信源信息。<br>   若一个RTP包流的源，对由RTP混频器生成的组合流起了作用，则它就是一个作用源。对特定包的生成起作用的源，其SSRC标识符组成的列表，被混频器插入到包的RTP报头中。这个列表叫做CSRC表。<br>   相关应用的例子如：在音频会议中，混频器向所有的说话人（talker)指出，谁的话语（speech)将被组合到即将发出的包中，即便所有的包都包含在同一个（混频器的）SSRC标识符中，也可让听者（接收者）可以清楚谁是当前说话人。<br>   每个CSRC标识了包含在该RTP报文有效载荷中的所有作用信源。</p>
+</li>
+</ol>
+<h3 id="实例参考"><a href="#实例参考" class="headerlink" title="实例参考"></a>实例参考</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">80 00 1e e2 12 e9 c2 4d 0b a9 e9 05 ff ff ff ...</span><br></pre></td></tr></table></figure>
+
+<p>连续的ffff开始往后是Payload负载，不做分析。</p>
+<ol>
+<li>80 二进制 1000 0000</li>
+</ol>
+<p>可以得出 V=2，P=0，X=0，CC=0</p>
+<ol start="2">
+<li>00 二进制 0000 0000</li>
+</ol>
+<p>可以得出 M=1，PT=0（PCMU）</p>
+<ol start="3">
+<li>1e e2 二进制 00011110 11100010</li>
+</ol>
+<p>可以得出 sequence number=7906</p>
+<ol start="4">
+<li>12 e9 c2 4d 二进制 00010010 11101001 11000010 01001101</li>
+</ol>
+<p>可以得出 timestamp=317309517</p>
+<ol start="5">
+<li>0b a9 e9 05 </li>
+</ol>
+<p>可以得出SSRC=0x0ba9e905</p>
+<h3 id="RTP报文头中的SSRC和CSRC"><a href="#RTP报文头中的SSRC和CSRC" class="headerlink" title="RTP报文头中的SSRC和CSRC"></a><a href="!<https://blog.csdn.net/sunxiaopengsun/article/details/90439458>">RTP报文头中的SSRC和CSRC</a></h3><p>同步信源(SSRC)标识符：占32位，用于标识同步信源。该标识符是随机选择的，参加同一视频会议的两个同步信源不能有相同的SSRC。</p>
+<p>特约信源(CSRC)标识符：每个CSRC标识符占32位，可以有0～15个。每个CSRC标识了包含在该RTP报文有效载荷中的所有特约信源。</p>
+<p>这里的同步信源是指产生媒体流的信源，例如麦克风、摄像机、RTP混合器等；它通过RTP报头中的一个32位数字SSRC标识符来标识，而不依赖于网络地址，接收者将根据SSRC标识符来区分不同的信源，进行RTP报文的分组。</p>
+<p>特约信源是指当混合器接收到一个或多个同步信源的RTP报文后，经过混合处理产生一个新的组合RTP报文，并把混合器作为组合RTP报文的 SSRC，而将原来所有的SSRC都作为CSRC传送给接收者，使接收者知道组成组合报文的各个SSRC。</p>
+<p>若一个RTP包流的源，对由RTP混频器生成的组合流起了作用，则它就是一个作用源。对特定包的生成起作用的源，其SSRC标识符组成的列表，被混频器插入到包的RTP报头中。这个列表叫做CSRC表。</p>
+<p>用图表示大概是这样：</p>
+<p><img src="https://img-blog.csdn.net/20180403160036844?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3podXNoZW50aWFu/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+<p>例如，有三个信号源各发出一路rtp流，RTP1携带的SSRC是SSRC1，RTP2携带的SSRC是SSRC2，RTP3携带SSRC3，这三路RTP流到达混合器时，混合器会将这三路流混合成一路流发出去，它会把这三路流的SSRC记录下来，形成一个列表，叫CSRC表，在发送的混合RTP流中，SSRC域填充的字段是混合器本身的SSRC4，而CSRC字段则会根据该包的负载的源来填入。</p>
+<p>例如当前的RTP包的负载是来自SSRC1的，那么在当前RTP包的CSRC字段填入SSRC1。</p>
+<p>这样接收者就可以根据CSRC来区分不同的信源；</p>
+<p>一般的，混合的RTP流中，每隔一段时间，就会有一个RTP报文包含了完整的CSRC表。例如在发送混合流时的第一个RTP包，它的CSRC域把CSRC表都填入，此时该包的负载可能是无意义或者并不是媒体流；此后的RTP报文中则根据负载的来源来填入CSRC域。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/GB28181-RTP/" data-id="cjwa2g0ki0006twvb5d62jde8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-GB28181-PS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/GB28181-PS/" class="article-date">
+  <time datetime="2019-05-30T02:35:10.954Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="数据流对象类型"><a href="#数据流对象类型" class="headerlink" title="数据流对象类型"></a><a href="!https://www.cnblogs.com/ostin/p/9900918.html">数据流对象类型</a></h3><ol>
+<li><p>ES</p>
+<ol>
+<li>基本流 （Elementary Streams）是直接从编码器出来的数据流，也成为净荷数据。ES是编码后的视频流（比如H.264），音频数据流（如AAC），和其他编码数据流的统称。</li>
+<li>ES是只包含一种内容的数据流（比如纯粹的视频或音频），每个ES都由若干个存取单元（AU）组成，每个视频AU或音频AU都是由头部和编码数据两部分组成，1个AU相当于编码的1幅视频图像或1个音频帧，也可以说，每个AU实际上是编码数据流的显示单元，即相当于解码的1幅视频图像或1个音频帧的取样。</li>
+</ol>
+</li>
+<li><p>PES</p>
+<ol>
+<li>打包的ES（Packetized Elementary Streams），是用来传递ES的一种数据结构。是ES流经过 PES打包形成的数据流，即将ES流分组、打包、加入包头信息，是对ES流的第一次打包。</li>
+<li>PTS - 显示时间戳（Presentation Time Stamp），用来表示显示单元出现在系统目标解码器的时间。</li>
+<li>DTS - 解码时间戳（Decoding Time Stamp），用来表示将存取单元全部字节从解码缓存取走的时间。</li>
+<li>PTS/DTS 这两个参数是解决音视频同步显示，防止解码器输入缓存上溢或下溢的关键。每一个 I帧 | P帧 | B帧 的包头都有一个PTS和DTS。</li>
+</ol>
+</li>
+<li><p>PS</p>
+<ol>
+<li>一个PS包 由若干个 PES 包组成，PS包头包含了同步信息与时钟恢复信息.一个PS包 最多可包含具有同一时钟基准的16个视频PES包和32个音频PES包。</li>
+<li>PS包是针对 ES净荷数据 的第二次封装。</li>
+</ol>
+</li>
+</ol>
+<h3 id="PS-包中的流类型（stream-type）的取值如下："><a href="#PS-包中的流类型（stream-type）的取值如下：" class="headerlink" title="PS 包中的流类型（stream type）的取值如下："></a>PS 包中的流类型（stream type）的取值如下：</h3><table>
+<thead>
+<tr>
+<th>MPEG-4  视频流</th>
+<th>H.264 视频流</th>
+<th>SVAC 视频流</th>
+<th>G.711 音频流</th>
+<th>G.722.1 音频流</th>
+<th>G.723.1  音频流</th>
+<th>G.729 音频流</th>
+<th>SVAC 音频流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0x10</td>
+<td>0x1B</td>
+<td>0x80</td>
+<td>0x90</td>
+<td>0x92</td>
+<td>0x93</td>
+<td>0x99</td>
+<td>0x9B</td>
+</tr>
+</tbody></table>
+<h3 id="PS包的包结构："><a href="#PS包的包结构：" class="headerlink" title="PS包的包结构："></a>PS包的包结构：</h3><p><img src="GB28181-PS%5CPS%E5%8C%85%E7%9A%84%E5%8C%85%E7%BB%93%E6%9E%84" alt="img"><br> 注意：这里面有一个 System Header，位于 PS包头之后，当且仅当第一个数据包时 该Header存在。<br> 在文件开头封包格式为：PS头 + System 头 + PES头 + H264流<br> 非文件开头格式： PS头 + PES头 + H264流</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/GB28181-PS/" data-id="cjwa2g0kf0003twvbg5ymwfsc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/30/获取资源路径方法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/编程基础/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/线程数用完/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/百度配置管理/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/查询pid/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
